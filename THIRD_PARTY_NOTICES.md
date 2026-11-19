@@ -4,4 +4,4 @@
 
 厂商CLI及其依赖由使用者在本机按固定版本从上游获取. 来源和安装元数据见`harness_registry.json`和`HARNESS_SOURCES.md`. 这些组件各自适用其上游条款, 包括[Claude Code的条款](https://code.claude.com/docs/en/legal-and-compliance). 构建后的本地镜像会保留上游资产随附的许可文件.
 
-SeekGnomes自身的许可条款尚待作者指定.
+SeekGnomes自有代码和附带文档采用[MIT许可证](LICENSE).

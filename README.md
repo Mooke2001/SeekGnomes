@@ -80,4 +80,8 @@ The outer package mounts the results directory. It does not mount the host home 
 - `seekgnomes-v1.3.0-github-source.tar.gz` contains the task set, Lean specifications, runner, local console, and build recipes.
 - `seekgnomes-v1.3.0-public-build-context.tar.gz` also includes pinned Lean, Mathlib, and Python wheels. Follow [BUILD.md](BUILD.md) to obtain the vendor CLIs and build the image locally.
 
-Release assets include [SHA-256 checksums](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS). The author has yet to specify a project license. Third-party components retain their own licenses. The archives exclude model weights, API keys, and historical benchmark data. Users run the benchmark on their own machine or infrastructure. Result sharing is off by default and requires a configured submission endpoint and user opt-in.
+Release assets include [SHA-256 checksums](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS). The archives exclude model weights, API keys, and historical benchmark data. Users run the benchmark on their own machine or infrastructure. Result sharing is off by default and requires a configured submission endpoint and user opt-in.
+
+## License
+
+The original SeekGnomes code and accompanying documentation are licensed under the [MIT License](LICENSE). Third-party components carry the licenses listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
