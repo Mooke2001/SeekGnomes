@@ -1,0 +1,17 @@
+*
+!Dockerfile
+!requirements-science.lock
+!requirements-harbor.lock
+!science-wheels/
+!science-wheels/**
+!harbor-wheels/
+!harbor-wheels/**
+!harness-assets/
+!harness-assets/**
+!verify-harness-assets.py
+!payload/
+!payload/**
+!runtime/
+!runtime/**
+!mathlib-packages/
+!mathlib-packages/**

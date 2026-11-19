@@ -1,0 +1,890 @@
+{
+  "asset_base_version": "1.2.0",
+  "asset_dirs": [],
+  "assets_included": false,
+  "harbor_wheels": [
+    {
+      "bytes": 15038,
+      "filename": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "name": "aiohappyeyeballs",
+      "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472",
+      "version": "2.7.1"
+    },
+    {
+      "bytes": 1919630,
+      "filename": "aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "aiohttp",
+      "sha256": "20f085697d7e911f1f73c43ed03fafbed1e7121797e2eb5428efa80398060584",
+      "version": "3.14.5"
+    },
+    {
+      "bytes": 7490,
+      "filename": "aiosignal-1.4.0-py3-none-any.whl",
+      "name": "aiosignal",
+      "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e",
+      "version": "1.4.0"
+    },
+    {
+      "bytes": 5293,
+      "filename": "annotated_doc-0.0.6-py3-none-any.whl",
+      "name": "annotated-doc",
+      "sha256": "361ca0950cc7082f53fa69e9328409f40a62c61e57e0a47e1825a08078a58a53",
+      "version": "0.0.6"
+    },
+    {
+      "bytes": 13427,
+      "filename": "annotated_types-0.8.0-py3-none-any.whl",
+      "name": "annotated-types",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "version": "0.8.0"
+    },
+    {
+      "bytes": 134521,
+      "filename": "anyio-4.16.0-py3-none-any.whl",
+      "name": "anyio",
+      "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+      "version": "4.16.0"
+    },
+    {
+      "bytes": 67548,
+      "filename": "attrs-26.1.0-py3-none-any.whl",
+      "name": "attrs",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "version": "26.1.0"
+    },
+    {
+      "bytes": 140156,
+      "filename": "boto3-1.44.4-py3-none-any.whl",
+      "name": "boto3",
+      "sha256": "8f1b66649346a5b29a909827d1bb460c02bd795c4d39751e36e03d5a18a3eec8",
+      "version": "1.44.4"
+    },
+    {
+      "bytes": 16462628,
+      "filename": "botocore-1.44.4-py3-none-any.whl",
+      "name": "botocore",
+      "sha256": "5a9303fc65e9a133bbc515fbb8d5c486787fb12108c37b2143c1c111c4a46525",
+      "version": "1.44.4"
+    },
+    {
+      "bytes": 135082,
+      "filename": "certifi-2026.10.23-py3-none-any.whl",
+      "name": "certifi",
+      "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "version": "2026.10.23"
+    },
+    {
+      "bytes": 221822,
+      "filename": "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "cffi",
+      "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+      "version": "2.1.1"
+    },
+    {
+      "bytes": 257601,
+      "filename": "charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "charset-normalizer",
+      "sha256": "3d31298449090ab8d47b7b1b2a555ff73cac7ed438a08b7ac160980c7ebed649",
+      "version": "3.5.2"
+    },
+    {
+      "bytes": 126163,
+      "filename": "click-8.5.1-py3-none-any.whl",
+      "name": "click",
+      "sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37",
+      "version": "8.5.1"
+    },
+    {
+      "bytes": 4752576,
+      "filename": "cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl",
+      "name": "cryptography",
+      "sha256": "9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079",
+      "version": "50.0.2"
+    },
+    {
+      "bytes": 11178,
+      "filename": "deprecation-2.1.0-py2.py3-none-any.whl",
+      "name": "deprecation",
+      "sha256": "a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a",
+      "version": "2.1.0"
+    },
+    {
+      "bytes": 13119,
+      "filename": "dirhash-0.5.0-py3-none-any.whl",
+      "name": "dirhash",
+      "sha256": "523dfd6b058c64f45b31604376926c6e2bd2ea301d0df23095d4055674e38b09",
+      "version": "0.5.0"
+    },
+    {
+      "bytes": 154541,
+      "filename": "fastapi-0.163.1-py3-none-any.whl",
+      "name": "fastapi",
+      "sha256": "68f2d8050f5c3583121c0d203046cc7def5c16a7d6c43a0e7707a8ea610fe2d3",
+      "version": "0.163.1"
+    },
+    {
+      "bytes": 278105,
+      "filename": "fastuuid-0.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "fastuuid",
+      "sha256": "808527f2407f58a76c916d6aa15d58692a4a019fdf8d4c32ac7ff303b7d7af09",
+      "version": "0.14.0"
+    },
+    {
+      "bytes": 222003,
+      "filename": "filelock-4.2.11-py3-none-any.whl",
+      "name": "filelock",
+      "sha256": "020e229e4bb9d410fc799c07ddf45fa217cba970278f40b30751d94f309b69e2",
+      "version": "4.2.11"
+    },
+    {
+      "bytes": 242411,
+      "filename": "frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "name": "frozenlist",
+      "sha256": "494a5952b1c597ba44e0e78113a7266e656b9794eec897b19ead706bd7074383",
+      "version": "1.8.0"
+    },
+    {
+      "bytes": 221738,
+      "filename": "fsspec-2026.9.0-py3-none-any.whl",
+      "name": "fsspec",
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "version": "2026.9.0"
+    },
+    {
+      "bytes": 37515,
+      "filename": "h11-0.16.0-py3-none-any.whl",
+      "name": "h11",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "version": "0.16.0"
+    },
+    {
+      "bytes": 62636,
+      "filename": "h2-4.4.1-py3-none-any.whl",
+      "name": "h2",
+      "sha256": "0e25f1462b23c9cb82d9eb02e28bc706dac2a68cb457c6a0d74d63c8a2a5d0e6",
+      "version": "4.4.1"
+    },
+    {
+      "bytes": 2058718,
+      "filename": "harbor-0.22.0-py3-none-any.whl",
+      "name": "harbor",
+      "sha256": "4c4c6571b3d160ed0cb45b82918136751fb08e7b8596412723ac00dde12eeabb",
+      "version": "0.22.0"
+    },
+    {
+      "bytes": 4292483,
+      "filename": "hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "hf-xet",
+      "sha256": "29dab7c904cd1914a0439c6e1306c12c7497c8bd32290fbe563ebf51ca4b6d6d",
+      "version": "1.8.0"
+    },
+    {
+      "bytes": 34246,
+      "filename": "hpack-4.2.0-py3-none-any.whl",
+      "name": "hpack",
+      "sha256": "858ac0b02280fa582b5080d68db0899c62a80375e0e5413a74970c5e518b6986",
+      "version": "4.2.0"
+    },
+    {
+      "bytes": 78784,
+      "filename": "httpcore-1.0.9-py3-none-any.whl",
+      "name": "httpcore",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "version": "1.0.9"
+    },
+    {
+      "bytes": 85551,
+      "filename": "httpcore2-2.16.2-py3-none-any.whl",
+      "name": "httpcore2",
+      "sha256": "16051ae2a42f776007543f32de9349a317b23d2cbb4e1456b4bac0e88b87419a",
+      "version": "2.16.2"
+    },
+    {
+      "bytes": 73517,
+      "filename": "httpx-0.28.1-py3-none-any.whl",
+      "name": "httpx",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "version": "0.28.1"
+    },
+    {
+      "bytes": 97893,
+      "filename": "httpx2-2.16.2-py3-none-any.whl",
+      "name": "httpx2",
+      "sha256": "f05c13aade4c45dbf1c9060647a1058f0acad62398fad96e741269edb33d46f5",
+      "version": "2.16.2"
+    },
+    {
+      "bytes": 846435,
+      "filename": "huggingface_hub-1.33.0-py3-none-any.whl",
+      "name": "huggingface_hub",
+      "sha256": "04e434b06e100eddbce9a6e817d72693a7884b10a79bd67ab48080d5c07eb899",
+      "version": "1.33.0"
+    },
+    {
+      "bytes": 13007,
+      "filename": "hyperframe-6.1.0-py3-none-any.whl",
+      "name": "hyperframe",
+      "sha256": "b03380493a519fce58ea5af42e4a42317bf9bd425596f7a0835ffce80f1a42e5",
+      "version": "6.1.0"
+    },
+    {
+      "bytes": 69583,
+      "filename": "idna-3.20-py3-none-any.whl",
+      "name": "idna",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "version": "3.20"
+    },
+    {
+      "bytes": 27220,
+      "filename": "importlib_metadata-8.9.0-py3-none-any.whl",
+      "name": "importlib_metadata",
+      "sha256": "e0f761b6ea91ced3b0844c14c9d955224d538105921f8e6754c00f6ca79fba7f",
+      "version": "8.9.0"
+    },
+    {
+      "bytes": 134899,
+      "filename": "jinja2-3.1.6-py3-none-any.whl",
+      "name": "Jinja2",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "version": "3.1.6"
+    },
+    {
+      "bytes": 338071,
+      "filename": "jiter-0.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "jiter",
+      "sha256": "0956b5f58b804221dfb929c120e6d4032138fed20c1cc0ef683a2d1326255e46",
+      "version": "0.19.0"
+    },
+    {
+      "bytes": 20419,
+      "filename": "jmespath-1.1.0-py3-none-any.whl",
+      "name": "jmespath",
+      "sha256": "a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64",
+      "version": "1.1.0"
+    },
+    {
+      "bytes": 90630,
+      "filename": "jsonschema-4.26.0-py3-none-any.whl",
+      "name": "jsonschema",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "version": "4.26.0"
+    },
+    {
+      "bytes": 18437,
+      "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "name": "jsonschema-specifications",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "version": "2025.9.1"
+    },
+    {
+      "bytes": 41091727,
+      "filename": "litellm-1.109.1-cp310-abi3-manylinux_2_28_x86_64.whl",
+      "name": "litellm",
+      "sha256": "1c8b4dd671fa0cd0850aa751678704ff77e595fb1e6085b2dc3be39ee19bdaaf",
+      "version": "1.109.1"
+    },
+    {
+      "bytes": 96951,
+      "filename": "markdown_it_py-4.3.0-py3-none-any.whl",
+      "name": "markdown-it-py",
+      "sha256": "7aa1511a46c39138de78d9eba92ce47e63124d8003fc98b3a351909e04239efa",
+      "version": "4.3.0"
+    },
+    {
+      "bytes": 22985,
+      "filename": "markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "MarkupSafe",
+      "sha256": "8e124f974786f831d6043728e38296969d3579db8896fe004682f5758e613581",
+      "version": "3.0.4"
+    },
+    {
+      "bytes": 9979,
+      "filename": "mdurl-0.1.2-py3-none-any.whl",
+      "name": "mdurl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "version": "0.1.2"
+    },
+    {
+      "bytes": 516796,
+      "filename": "multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "multidict",
+      "sha256": "1fb8c1a3480c130c3a6422d5f16f3cad6552bf08c2089dd288ba7134649183b5",
+      "version": "7.2.1"
+    },
+    {
+      "bytes": 2446605,
+      "filename": "openai-3.52.0-py3-none-any.whl",
+      "name": "openai",
+      "sha256": "fc220b5f06d354e8f48ab38a64410ec1537957a47d6e584b77cee8c21b7cb84e",
+      "version": "3.52.0"
+    },
+    {
+      "bytes": 60335,
+      "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+      "name": "opentelemetry-api",
+      "sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
+      "version": "1.45.2"
+    },
+    {
+      "bytes": 129956,
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "name": "packaging",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "version": "26.3"
+    },
+    {
+      "bytes": 57328,
+      "filename": "pathspec-1.1.1-py3-none-any.whl",
+      "name": "pathspec",
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "version": "1.1.1"
+    },
+    {
+      "bytes": 35402,
+      "filename": "platformdirs-4.14.5-py3-none-any.whl",
+      "name": "platformdirs",
+      "sha256": "8e778c6fa421516f4d3369449f8df3b0e1b72c0e0005fe88e3ec772d0a14e750",
+      "version": "4.14.5"
+    },
+    {
+      "bytes": 25732,
+      "filename": "postgrest-2.34.1-py3-none-any.whl",
+      "name": "postgrest",
+      "sha256": "7abb123b050011408f61410e334b4288c5c69768acea4eef8c4c1e518853c09a",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 250424,
+      "filename": "propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "propcache",
+      "sha256": "2814ecd8e818f487bee4b0f921bc4d1c176cc5fc71ac0f072d0fa67eda4ac14b",
+      "version": "0.5.4"
+    },
+    {
+      "bytes": 62600,
+      "filename": "pycparser-3.12-py3-none-any.whl",
+      "name": "pycparser",
+      "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+      "version": "3.12"
+    },
+    {
+      "bytes": 494071,
+      "filename": "pydantic-2.14.3-py3-none-any.whl",
+      "name": "pydantic",
+      "sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8",
+      "version": "2.14.3"
+    },
+    {
+      "bytes": 2261727,
+      "filename": "pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "pydantic_core",
+      "sha256": "c81d98e27d9d9261909dcccab1ba5d6ea1c98b0bb9470e368604614fd1d36ddd",
+      "version": "2.50.4"
+    },
+    {
+      "bytes": 82679,
+      "filename": "pydantic_settings-2.16.3-py3-none-any.whl",
+      "name": "pydantic-settings",
+      "sha256": "d1db16a2d34006323a1b42c0640898da58adfbad7ec30baaa9e2b18aafc08999",
+      "version": "2.16.3"
+    },
+    {
+      "bytes": 1250147,
+      "filename": "pygments-2.21.0-py3-none-any.whl",
+      "name": "Pygments",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "version": "2.21.0"
+    },
+    {
+      "bytes": 33860,
+      "filename": "pyjwt-2.15.1-py3-none-any.whl",
+      "name": "PyJWT",
+      "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193",
+      "version": "2.15.1"
+    },
+    {
+      "bytes": 229892,
+      "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+      "name": "python-dateutil",
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "version": "2.9.0.post0"
+    },
+    {
+      "bytes": 23266,
+      "filename": "python_dotenv-1.2.4-py3-none-any.whl",
+      "name": "python-dotenv",
+      "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+      "version": "1.2.4"
+    },
+    {
+      "bytes": 807870,
+      "filename": "pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "PyYAML",
+      "sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+      "version": "6.0.3"
+    },
+    {
+      "bytes": 27381,
+      "filename": "realtime-2.34.1-py3-none-any.whl",
+      "name": "realtime",
+      "sha256": "74f1c1839a4b74c40fdb83afc105e7eb5c359a1a31d2082751e58b87d5f936ce",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 26766,
+      "filename": "referencing-0.37.0-py3-none-any.whl",
+      "name": "referencing",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "version": "0.37.0"
+    },
+    {
+      "bytes": 809168,
+      "filename": "regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "regex",
+      "sha256": "f3758c3b1689ab778f3e1ae0f9aa4d22b8e4efc362e2e4cfdbbc5a208fed0bc1",
+      "version": "2026.11.15"
+    },
+    {
+      "bytes": 73075,
+      "filename": "requests-2.34.2-py3-none-any.whl",
+      "name": "requests",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "version": "2.34.2"
+    },
+    {
+      "bytes": 310654,
+      "filename": "rich-15.0.0-py3-none-any.whl",
+      "name": "rich",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "version": "15.0.0"
+    },
+    {
+      "bytes": 371261,
+      "filename": "rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "rpds-py",
+      "sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab",
+      "version": "2026.9.1"
+    },
+    {
+      "bytes": 90252,
+      "filename": "s3transfer-0.19.3-py3-none-any.whl",
+      "name": "s3transfer",
+      "sha256": "24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553",
+      "version": "0.19.3"
+    },
+    {
+      "bytes": 20690,
+      "filename": "scantree-0.0.4-py3-none-any.whl",
+      "name": "scantree",
+      "sha256": "7616ab65aa6b7f16fcf8e6fa1d9afaa99a27ab72bba05c61b691853b96763174",
+      "version": "0.0.4"
+    },
+    {
+      "bytes": 9755,
+      "filename": "shellingham-1.5.4-py2.py3-none-any.whl",
+      "name": "shellingham",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "version": "1.5.4"
+    },
+    {
+      "bytes": 10529,
+      "filename": "shortuuid-1.0.13-py3-none-any.whl",
+      "name": "shortuuid",
+      "sha256": "a482a497300b49b4953e15108a7913244e1bb0d41f9d332f5e9925dba33a3c5a",
+      "version": "1.0.13"
+    },
+    {
+      "bytes": 11050,
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "name": "six",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "version": "1.17.0"
+    },
+    {
+      "bytes": 10235,
+      "filename": "sniffio-1.3.1-py3-none-any.whl",
+      "name": "sniffio",
+      "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+      "version": "1.3.1"
+    },
+    {
+      "bytes": 80571,
+      "filename": "starlette-1.10.0-py3-none-any.whl",
+      "name": "starlette",
+      "sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+      "version": "1.10.0"
+    },
+    {
+      "bytes": 28641,
+      "filename": "storage3-2.34.1-py3-none-any.whl",
+      "name": "storage3",
+      "sha256": "0f2615d75bd9415b804274a430bb89ee0bead1bec0c0a26717aecbdb0ee05b30",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 17096,
+      "filename": "supabase-2.34.1-py3-none-any.whl",
+      "name": "supabase",
+      "sha256": "bf06e59d0b37fbbdbc4d4d1f6b60844c517b744aa9bc34432deae06f59a6cc1d",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 50455,
+      "filename": "supabase_auth-2.34.1-py3-none-any.whl",
+      "name": "supabase-auth",
+      "sha256": "45aa3334335926a8940beb89a9438386a9af0561d7315797e46c47b50d0c9620",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 10258,
+      "filename": "supabase_functions-2.34.1-py3-none-any.whl",
+      "name": "supabase-functions",
+      "sha256": "6829e5138de7af07197fb2e3dc9f067a50a6bd5615476494b92fa49d4f429c6a",
+      "version": "2.34.1"
+    },
+    {
+      "bytes": 32310,
+      "filename": "tenacity-9.2.1-py3-none-any.whl",
+      "name": "tenacity",
+      "sha256": "9e56f17539296baab7beabb08b92f6ee3d7be92d8be72d763360677c2ad6580e",
+      "version": "9.2.1"
+    },
+    {
+      "bytes": 1204197,
+      "filename": "tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "name": "tiktoken",
+      "sha256": "7896eea257fe497a2b7134474d909156c6744ce8da35bce88011a960e008aa0d",
+      "version": "0.14.0"
+    },
+    {
+      "bytes": 3396193,
+      "filename": "tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "tokenizers",
+      "sha256": "376851d22bcf9d650a5c3090bb83e6cf9e895fbf0595369fa4cd43c1f69b5f87",
+      "version": "0.23.3"
+    },
+    {
+      "bytes": 16588,
+      "filename": "toml-0.10.2-py2.py3-none-any.whl",
+      "name": "toml",
+      "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+      "version": "0.10.2"
+    },
+    {
+      "bytes": 80199,
+      "filename": "tqdm-4.70.1-py3-none-any.whl",
+      "name": "tqdm",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "version": "4.70.1"
+    },
+    {
+      "bytes": 19017,
+      "filename": "truststore-0.10.5-py3-none-any.whl",
+      "name": "truststore",
+      "sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+      "version": "0.10.5"
+    },
+    {
+      "bytes": 121064,
+      "filename": "typer-0.29.1-py3-none-any.whl",
+      "name": "typer",
+      "sha256": "00dbc549c13428bec1be55fe1f4d0fb8c6637a310e4f178ef14abe9534ee7b58",
+      "version": "0.29.1"
+    },
+    {
+      "bytes": 45571,
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "name": "typing_extensions",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "version": "4.16.0"
+    },
+    {
+      "bytes": 14874,
+      "filename": "typing_inspection-0.4.5-py3-none-any.whl",
+      "name": "typing-inspection",
+      "sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
+      "version": "0.4.5"
+    },
+    {
+      "bytes": 135717,
+      "filename": "urllib3-2.8.0-py3-none-any.whl",
+      "name": "urllib3",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "version": "2.8.0"
+    },
+    {
+      "bytes": 87427,
+      "filename": "uvicorn-0.54.0-py3-none-any.whl",
+      "name": "uvicorn",
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "version": "0.54.0"
+    },
+    {
+      "bytes": 182523,
+      "filename": "websockets-15.0.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "websockets",
+      "sha256": "64dee438fed052b52e4f98f76c5790513235efaa1ef7f3f2192c392cd7c91b65",
+      "version": "15.0.1"
+    },
+    {
+      "bytes": 117050,
+      "filename": "yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "yarl",
+      "sha256": "c6f117789d22dce188e5754e8bc65b7e6ebf8cb73963b9fa761f672a5883769d",
+      "version": "1.25.1"
+    },
+    {
+      "bytes": 10581,
+      "filename": "zipp-4.1.2-py3-none-any.whl",
+      "name": "zipp",
+      "sha256": "b30cb6cd253122169c47de245ca24a86bac2a5d3802ba15bf7ba6414eb9e144d",
+      "version": "4.1.2"
+    }
+  ],
+  "native_harnesses": {
+    "created_utc": "2026-11-17T08:59:28Z",
+    "files": {
+      "NODE-SHASUMS256.txt": "32b6a9cbb3d28cfad6f19cba160e93d96082947dcd454b7940995bdfa593d3e4",
+      "install.sh": "e559fd0ee668f6ebf8657d4490ea4d6a3c743409d67608fb98c51fe537b19fd1",
+      "mimocode-linux-x64-baseline.tar.gz": "92b0d0e5e7cc93691a072aa34a6496d01799e84ae0f13f369cdc14a07a35d66a",
+      "native-node-modules.tar.gz": "852872cc92f9ff5889e4b5841de8c99630e8375ac2c2bcd5e1cd5a2903548f3a",
+      "native-package-lock.json": "6add1b2cdd50b0a637154699212bbc68085a1812a3aaceb25e6c62f9017e68c1",
+      "node-v24.9.0-linux-x64.tar.xz": "f52ec50e959d72d5c680d9731420b2661cd2a8070e94c7369b6ddfcd8b7278be",
+      "zcode-source-build/NODE24.14.0-SHASUMS256.txt": "e340782342ed6265ce9e14e9caa81e2260a9b4415bbd2c8ad20cea0e59617d65",
+      "zcode-source-build/README.md": "3d3392a2730bf0ebc235db0c39efb65ad4205fa08de7137f3a0ed17687c27e21",
+      "zcode-source-build/SOURCE_LICENSE.txt": "606c36baf38b973227273df12a74930e4b4137280eea835c5cd623aa4553c13b",
+      "zcode-source-build/build-provenance.json": "628dea4b1d126aa1e904193e0d52844d8aa90980c1f2b209f1103f8f06b0f42c",
+      "zcode-source-build/cli-build-final.log": "42508b2a5d5c288fe7a7491515687d048c47707fc16cb917fa164d972a5076c4",
+      "zcode-source-build/cli-help.txt": "1ef8886b938c0fb424d17f21740cb1937b02f1e62cb72afd67aef10f233837a5",
+      "zcode-source-build/dependency-build.log": "607056e5390fc2770f45d5bdaba95dee4510f66838d48a98c93d5f2e26b9e760",
+      "zcode-source-build/deployed-pnpm-lock.yaml": "87abeaea2bf77621271497816c059f21adc7cbb5e52336ed0654d97ca5d52042",
+      "zcode-source-build/node-v24.14.0-linux-x64.tar.xz": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df",
+      "zcode-source-build/pnpm-10.33.2.tgz": "7a7bcf13d7f6ceb3946c03978373d99be9fde1cafc3000bdfed4c4f791167610",
+      "zcode-source-build/shared-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zcode-source-build/upstream-pnpm-lock.yaml": "42956fac803ad3ddd57c9a9e9074870de77ce2b3fbce936d0f11fe7961480c46",
+      "zcode-source-build/zcode-0.17.1-linux-x64-runtime.tar.gz": "edd1c50b70e6b055cad6d0e5c3a3d28efcaea11f504f57b2b797052cd6650b63"
+    },
+    "manual_platform_selection": {
+      "claude-code": "@anthropic-ai/claude-code-linux-x64@2.1.326",
+      "mimo-code": {
+        "archive_sha256": "92b0d0e5e7cc93691a072aa34a6496d01799e84ae0f13f369cdc14a07a35d66a",
+        "checksum_origin": "recorded from official HTTPS asset; optional upstream checksum HTTP404",
+        "executable_sha256": "256f45f18bfeaf1dfc73a3abc37fe1af5aabbc89a0bfe70c1a87d47dbd1f6015",
+        "source_url": "https://mimocode.cnbj1.mi-fds.com/mimocode/mimocode/releases/v0.1.17/mimocode-linux-x64-baseline.tar.gz",
+        "target": "mimocode-linux-x64-baseline",
+        "upstream_checksum_available": false,
+        "version": "0.1.17"
+      }
+    },
+    "network_during_image_install": false,
+    "node_version": "24.9.0",
+    "not_bundled": {},
+    "npm_lifecycle_scripts_executed": false,
+    "platform": "linux-amd64",
+    "schema": "seekgnomes-native-assets/v1.2",
+    "source_builds": {
+      "zcode": {
+        "build_dependency_scripts_ignored": true,
+        "cli_sha256": "052b1bc504b7e47da297cdb0d13f1899baa804b675247d757f26b0560a97b540",
+        "cli_version": "0.17.1",
+        "deployed_lock_sha256": "87abeaea2bf77621271497816c059f21adc7cbb5e52336ed0654d97ca5d52042",
+        "deployment_config": {
+          "allow-unused-patches": true,
+          "legacy": true,
+          "prod": true
+        },
+        "external_api_calls": 0,
+        "help_probe": {
+          "exit_code": 0
+        },
+        "node_entrypoint": "node-v24.14.0-linux-x64/bin/node",
+        "node_sha256": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df",
+        "node_url": "https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz",
+        "node_version": "24.14.0",
+        "pnpm_archive_sha256": "7a7bcf13d7f6ceb3946c03978373d99be9fde1cafc3000bdfed4c4f791167610",
+        "pnpm_integrity": "sha512-qQ+vb+6rca1sblf5Tg/hoS9dzCLNdU20CulZPraj4LaxLjVAIYuzeuCDQEsfLObbKkEh6XmCm0r/lLmfSdoc+A==",
+        "pnpm_tarball": "https://registry.npmjs.org/pnpm/-/pnpm-10.33.2.tgz",
+        "pnpm_version": "10.33.2",
+        "runtime_archive_sha256": "edd1c50b70e6b055cad6d0e5c3a3d28efcaea11f504f57b2b797052cd6650b63",
+        "runtime_entrypoint": "dist/zcode.cjs",
+        "source_archive_sha256": "cde82985a3b68e9f4aba1491e65c64a4ef5893e1d0160793d3dfb7f4969cd86d",
+        "source_commit": "fec975905a2abd4c07e35c40d51fa097a2258ec9",
+        "source_url": "https://codeload.github.com/zai-org/ZCode/tar.gz/fec975905a2abd4c07e35c40d51fa097a2258ec9",
+        "upstream_lock_sha256": "42956fac803ad3ddd57c9a9e9074870de77ce2b3fbce936d0f11fe7961480c46",
+        "version_probe": {
+          "exit_code": 0,
+          "stdout": "0.17.1"
+        }
+      }
+    },
+    "top_level_official_assets": {
+      "claude-code": {
+        "binary": "claude",
+        "engines": {
+          "node": ">=22.0.0"
+        },
+        "integrity": "sha512-F7OqxXKogQYUs+RN1903IWlXGuxn8iwAykx+umRbDKvoBeK0Xm6cdgQx9auu5dtsB+DczN58/EFrlaU8pLfgJg==",
+        "kind": "npm",
+        "package": "@anthropic-ai/claude-code",
+        "tarball": "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.1.326.tgz",
+        "version": "2.1.326"
+      },
+      "codex": {
+        "binary": "codex",
+        "engines": {
+          "node": ">=16"
+        },
+        "integrity": "sha512-39uApTRT9bkhE8tMXTIfZxaZ27oi7hPqWoF2Coyp+iQFAD3NVHgH838IYVUfJaX85leMSP2s4JOmVw0mMSCN5Q==",
+        "kind": "npm",
+        "local_asset_allowed": true,
+        "package": "@openai/codex",
+        "tarball": "https://registry.npmjs.org/@openai/codex/-/codex-0.167.1.tgz",
+        "version": "0.167.1"
+      },
+      "dsh": {
+        "binary": "dsh",
+        "engines": {
+          "node": ">=24.9.0"
+        },
+        "integrity": "sha512-ijR9UEVYkG15Q/Q79JzvzLBzQOQfc63VLr9n6flpwHPhr5IKn2UxthnSoto/P9l7qGd7pPvI1Ra6TW7LH3oKpg==",
+        "kind": "npm",
+        "package": "@deepseek-ai/dsh",
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/dsh/-/dsh-0.2.2-rc.1.tgz",
+        "version": "0.2.2-rc.1"
+      },
+      "gemini-cli": {
+        "binary": "gemini",
+        "engines": {
+          "node": ">=20"
+        },
+        "integrity": "sha512-eq7AWY+YCijNGKVwyiRjN+GuOdXU/djuOZhX18p+HDmNyUqFdqH7C5V6vDJLl1uffhRPhGijePV+YvY8lymrbQ==",
+        "kind": "npm",
+        "package": "@google/gemini-cli",
+        "tarball": "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.68.0.tgz",
+        "version": "0.68.0"
+      },
+      "grok-build": {
+        "binary": "grok",
+        "engines": {
+          "node": ">=20"
+        },
+        "integrity": "sha512-Nt7VOt27j6POJia3KPpg4W5O3A6NQMHGf3wnhjbyD7DM4gTslFADz/bflKr29Sqgu5eLIqWDb8gm9wDFSr9oWg==",
+        "kind": "npm",
+        "package": "@xai-official/grok",
+        "tarball": "https://registry.npmjs.org/@xai-official/grok/-/grok-1.0.88.tgz",
+        "version": "1.0.88"
+      },
+      "kimi-code": {
+        "binary": "kimi",
+        "engines": {
+          "node": ">=22.19.0"
+        },
+        "integrity": "sha512-2cREgK8n2voOsANP8gjPZIbCghzdbnOXbyjvEUPExhQxtfAvo9ke4OLGNYtFsMipFttLs22h8iZtcNSP35bICg==",
+        "kind": "npm",
+        "package": "@moonshot-ai/kimi-code",
+        "tarball": "https://registry.npmjs.org/@moonshot-ai/kimi-code/-/kimi-code-2.6.2.tgz",
+        "version": "2.6.2"
+      },
+      "mimo-code": {
+        "binary": "mimo",
+        "engines": {
+          "node": ">=20.10.0"
+        },
+        "integrity": "sha512-W3pI7a/2OEPp37lZ8mnGR81/cYlVFHTNlMGdduSk7CBosgpvBfkdSOfuQeXR/V0ctrIOQ3z/nsGu57Ah9etPdA==",
+        "kind": "npm",
+        "package": "@mimo-ai/cli",
+        "tarball": "https://registry.npmjs.org/@mimo-ai/cli/-/cli-0.1.17.tgz",
+        "version": "0.1.17"
+      },
+      "qwen-code": {
+        "binary": "qwen",
+        "engines": {
+          "node": ">=22.0.0"
+        },
+        "integrity": "sha512-hXlg0mqN5zaZC385VO3NZRxBBHP3+SiWBFwj7wJptwA5rUS0vNdOMbJ/W4VBJgRY7LbC2UzHsPFHl2Ot0URJGQ==",
+        "kind": "npm",
+        "package": "@qwen-code/qwen-code",
+        "tarball": "https://registry.npmjs.org/@qwen-code/qwen-code/-/qwen-code-0.27.4.tgz",
+        "version": "0.27.4"
+      },
+      "zcode": {
+        "binary": "zcode",
+        "commit": "fec975905a2abd4c07e35c40d51fa097a2258ec9",
+        "entrypoint": "dist/zcode.cjs",
+        "kind": "bundled-source-build",
+        "node": {
+          "archive": "zcode-source-build/node-v24.14.0-linux-x64.tar.xz",
+          "sha256": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df",
+          "version": "24.14.0"
+        },
+        "note": "Built from the exact official commit with the upstream pnpm lock. The self-contained Linux runtime passed actual --version and --help probes; no paid model call was made.",
+        "provenance": "zcode-source-build/build-provenance.json",
+        "repository": "https://github.com/zai-org/ZCode",
+        "runtime_archive": "zcode-source-build/zcode-0.17.1-linux-x64-runtime.tar.gz",
+        "runtime_sha256": "edd1c50b70e6b055cad6d0e5c3a3d28efcaea11f504f57b2b797052cd6650b63",
+        "subdirectory": "apps/zcode-cli",
+        "version": "0.17.1"
+      }
+    },
+    "version_probes": {
+      "claude-code": {
+        "expected_version": "2.1.326",
+        "ok": true,
+        "output": "2.1.326 (Claude Code)",
+        "returncode": 0
+      },
+      "codex": {
+        "expected_version": "0.167.1",
+        "ok": true,
+        "output": "codex-cli 0.167.1",
+        "returncode": 0
+      },
+      "dsh": {
+        "expected_version": "0.2.2-rc.1",
+        "ok": true,
+        "output": "0.2.2-rc.1",
+        "returncode": 0
+      },
+      "gemini-cli": {
+        "expected_version": "0.68.0",
+        "ok": true,
+        "output": "0.68.0",
+        "returncode": 0
+      },
+      "grok-build": {
+        "expected_version": "1.0.88",
+        "ok": true,
+        "output": "grok 1.0.88 (2fe3608f7398)",
+        "returncode": 0
+      },
+      "kimi-code": {
+        "expected_version": "2.6.2",
+        "ok": true,
+        "output": "2.6.2",
+        "returncode": 0
+      },
+      "mimo-code": {
+        "expected_version": "0.1.17",
+        "ok": true,
+        "output": "0.1.17",
+        "returncode": 0
+      },
+      "qwen-code": {
+        "expected_version": "0.27.4",
+        "ok": true,
+        "output": "0.27.4",
+        "returncode": 0
+      },
+      "zcode": {
+        "expected_version": "0.17.1",
+        "ok": true,
+        "output": "0.17.1",
+        "returncode": 0,
+        "scope": "native CLI version and help; model/MCP acceptance is separate"
+      }
+    }
+  },
+  "schema": "seekgnomes-build-assets/v1.2",
+  "source_manifest_sha256": "4b2d92bd0c89868738f8e9c533df26dd4cf5c3c71af1315d27204a439268d200",
+  "vendor_runtime_acquisition": "on_the_build_host_from_pinned_upstream"
+}

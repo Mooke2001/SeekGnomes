@@ -1,0 +1,15 @@
+import QuantumManyBodyVariational.TrustedSpecRegressionV2
+open QuantumManyBodyVariational.InfiniteState
+open TrustedStateSpecV2 TrustedSpecExamplesV2 TrustedSpecRegressionV2
+#print axioms LocalEnergy.matrix_isHermitian
+#print axioms LocalEnergy.cellValue_eq_trace
+#print axioms LocalEnergy.value_eq_trace_re
+#print axioms LocalEnergy.value_error_bound
+#print axioms LocalEnergy.value_le_upper
+#print axioms accepted_trace_bound
+#print axioms tracial_stateCondition
+#print axioms plus_stateCondition
+#print axioms mix_stateCondition
+#print axioms twoQubit_plus_value
+#print axioms twoQubit_plus_accepted
+#print axioms twoQubit_tracial_accepted

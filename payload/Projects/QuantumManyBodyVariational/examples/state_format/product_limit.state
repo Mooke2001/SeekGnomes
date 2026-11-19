@@ -1,0 +1,14 @@
+# Decaying mixture of the two polarized product states.
+
+def polarized(P: Word, spin: Real) -> Real:
+    return prod([spin if p == Z else Real(0) for p in labels(P)])
+
+def approximant(P: Word, n: Nat) -> Real:
+    weight = Real(1 / 2) ** n
+    return (1 - weight) * polarized(P, 1) + weight * polarized(P, -1)
+
+def cutoff(P: Word, bits: Nat) -> Nat:
+    return bits + Nat(1)
+
+def f(P: Word) -> Real:
+    return limit(approximant, cutoff, P)

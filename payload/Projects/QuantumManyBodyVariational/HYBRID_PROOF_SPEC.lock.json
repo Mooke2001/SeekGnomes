@@ -1,0 +1,48 @@
+{
+  "base_lock_sha256": "8d76c72d9f0ca0c8e74ce9fb241bf755dc3eb4bee81935757f5deb2a6ec08fff",
+  "candidate_definition_holes": [],
+  "fixed_target": "GeneratedState.ProofObligation",
+  "generated_namespace": "GeneratedState",
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "required_theorem": "Submission.accepted",
+  "source_sha256": {
+    "lean/QuantumManyBodyVariational/CorrelatorStates.lean": "17257df90137eb64bed5d1a3c43a440bf48e14ce7e152aeb706108de0e375e3d",
+    "lean/QuantumManyBodyVariational/HybridMath.lean": "6f1fbe1b1a9e40e878b19b1a500cca7898f63bfe808657e4628b85e56ad52e51",
+    "lean/QuantumManyBodyVariational/LocalPauli.lean": "4f7fe9e575b064009e4f4c67f4d6663b8fbd64e787f8831fb4c4bd16d9ec4362",
+    "lean/QuantumManyBodyVariational/PauliRecovery.lean": "b90e164d14a70a4542ad5833d5052317a61a844d967171def33ab7f731cdace9",
+    "lean/QuantumManyBodyVariational/RationalMath.lean": "7baf95ef24eee2d6e6fd61726f2d256ce167d20461e78519244e5256b5cc723f",
+    "lean/QuantumManyBodyVariational/StateClosure.lean": "619c78503c2abb31a5626acb2862f6c0dd51b0aebc4ad62b1dcaa9606f11e6b8",
+    "lean/QuantumManyBodyVariational/StateExamples.lean": "d11a3f8052fb563a8bf581f5e82f24c4d21619e50d3a3ac262b1d875c1c185f4",
+    "lean/QuantumManyBodyVariational/StateLimits.lean": "e2173a3374649155a6bdc4cc8833535cb82e345f5e0bcf72803f3251973471ca",
+    "lean/QuantumManyBodyVariational/TrustedSpecExamplesV2.lean": "0f0bb8695b812bc35115488980b4054390f542431a3806a3005692f8caeb7b61",
+    "lean/QuantumManyBodyVariational/TrustedStateSpec.lean": "091a9f4b9cd8c7ac38e5689e76e8fb5e7652b7483c570e239b5cbb50b23929da",
+    "lean/QuantumManyBodyVariational/TrustedStateSpecV2.lean": "7e175d1fdff17a70d82fa160880e0ad7738e32e0fcd0aed3eab5ad04bf4ffa10",
+    "lean/lake-manifest.json": "606bdece19aaa8d2c603a08d82af1c2a0f5a99a455168cd42535ae9daf4df76e",
+    "scripts/check_hybrid_state.py": "291a952c3c9695379a27b2bca7f4f232347054164bf24b5c07f45e0a239a2c0c",
+    "scripts/check_state_spec_v2.py": "b37679211a43bdf5a81fde6bcfc6d44c91d8596cc9eb6c71374e61d5e51a6d3f",
+    "scripts/python_correlator.py": "56f5be8ca5efb3557884c9ec5c2d8b71fe49f7601f9c9e85a6f21c8e1c71fab2",
+    "src/correlator_energy.py": "0b2c95d8e0d89ce7af7f6ce1d7906d315306ba03ad745810ccd5e61da9bc2fe6",
+    "src/correlator_float_guard.py": "16269f0d396ade76f6519f5e507296e40e727e77479651d1ff179217bcea36f7",
+    "src/correlator_hybrid_branch.py": "f6d5c8ab07e8ea8216011ba107ef4506f6ceae4578c69d5c64a988eda5a5cd0e",
+    "src/correlator_rational_math.py": "4b580bd3cba1b58c2e188730abae97aa6537f6463ec2c8b71865fb2ac2b6d930",
+    "src/hybrid_proof_verifier.py": "4e3568703db91b8d857deabf86a3f119b94498d9954ed68c828056cdd8295592",
+    "src/python_correlator_compiler.py": "f2310b28b503f2511e20416e2d4a34c4715f2ab2a25ab683df10fcee97ef6917",
+    "src/python_correlator_hybrid.py": "71ffef20a48e669e13f083d33bd9b5db5f2671991cb051d4b4a57603007e3f6b",
+    "src/python_correlator_rational.py": "e680a4188b38345fb44b52e70d6188ac58ec41735a236d02b13b5f4e8ebaaa8d",
+    "src/python_correlator_v2.py": "c1cc75d9d96087685085b5e917470d2a8dea4ad40236d485dbcc2ec02415329e",
+    "src/rational_text.py": "2242a1143f0fec5d5aee340a9bfe33d110d143f9e0e04c07369b0a7bc4c91927"
+  },
+  "spec": "hybrid-state-proof/v1",
+  "toolchain_binary_sha256": {
+    "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+    "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074"
+  },
+  "trusted_dependency_note": "Inherited pinned local Lean/mathlib installation and trusted prebuilt Mathlib dependencies; generic project modules freshly compiled from locked source"
+}

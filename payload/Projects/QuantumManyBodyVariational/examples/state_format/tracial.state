@@ -1,0 +1,2 @@
+def f(P: Word) -> Real:
+    return 1 if len(P) == 0 else 0

@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+set -euo pipefail
+task_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)"
+task_cpus="${SEEKGNOMES_CPUS:-2}"
+task_cli=("$@")
+for ((task_index=0; task_index<${#task_cli[@]}; task_index++)); do
+  case "${task_cli[$task_index]}" in
+    --) break ;;
+    --cpus)
+      task_index=$((task_index+1))
+      if ((task_index>=${#task_cli[@]})); then printf '%s\n' '--cpus requires a positive integer.' >&2; exit 2; fi
+      task_cpus="${task_cli[$task_index]}" ;;
+    --cpus=*) task_cpus="${task_cli[$task_index]#--cpus=}" ;;
+  esac
+done
+if [[ ! "$task_cpus" =~ ^[1-9][0-9]*$ ]]; then
+  printf '%s\n' 'SEEKGNOMES_CPUS / --cpus must be a positive integer.' >&2; exit 2
+fi
+task_engine="${SEEKGNOMES_ENGINE:-}"
+if [[ -z "$task_engine" ]]; then
+  if command -v docker >/dev/null && docker info >/dev/null 2>&1; then task_engine=docker
+  elif command -v podman >/dev/null && podman info >/dev/null 2>&1; then task_engine=podman
+  else printf '%s\n' 'A working Docker Engine or Podman is required.' >&2; exit 2; fi
+fi
+if [[ "$task_engine" != docker && "$task_engine" != podman ]]; then
+  printf '%s\n' 'SEEKGNOMES_ENGINE must be docker or podman.' >&2; exit 2
+fi
+if [[ "$(id -u)" == 0 ]]; then
+  printf '%s\n' 'Run SeekGnomes as a non-root host user. Bubblewrap must use its unprivileged user-namespace mode.' >&2
+  exit 2
+fi
+if [[ "$task_engine" == docker ]] && "$task_engine" info --format '{{json .SecurityOptions}}' | grep -q rootless; then
+  if [[ -z "${SEEKGNOMES_ENGINE:-}" ]] && command -v podman >/dev/null && podman info >/dev/null 2>&1; then
+    task_engine=podman
+  else
+    printf '%s\n' 'This release supports rootful Docker or rootless Podman. Rootless Docker needs a different result-UID mapping; use SEEKGNOMES_ENGINE=podman.' >&2
+    exit 2
+  fi
+fi
+task_image='seekgnomes:1.3.0'
+task_expected=''
+if [[ -f "$task_dir/image-id.txt" ]]; then task_expected="$(cat "$task_dir/image-id.txt")"; fi
+task_current="$("$task_engine" image inspect --format '{{.Id}}' "$task_image" 2>/dev/null || true)"
+if [[ -z "$task_current" || ( -n "$task_expected" && "${task_current#sha256:}" != "${task_expected#sha256:}" ) ]]; then
+  if [[ -f "$task_dir/seekgnomes-image.tar.gz" ]]; then
+    if command -v sha256sum >/dev/null; then
+      (cd "$task_dir" && sha256sum -c image.sha256)
+    elif command -v shasum >/dev/null; then
+      (cd "$task_dir" && shasum -a 256 -c image.sha256)
+    else
+      printf '%s\n' 'sha256sum or shasum is required to verify this release.' >&2; exit 2
+    fi
+    "$task_engine" load -i "$task_dir/seekgnomes-image.tar.gz"
+    # Podman saves the local registry prefix in docker-archive. Docker needs
+    # the unqualified local alias used by this launcher after loading it.
+    task_loaded="$("$task_engine" image inspect --format '{{.Id}}' "localhost/$task_image" 2>/dev/null || true)"
+    if [[ -n "$task_loaded" && ( -z "$task_expected" || "${task_loaded#sha256:}" == "${task_expected#sha256:}" ) ]]; then
+      "$task_engine" tag "localhost/$task_image" "$task_image"
+    fi
+  else
+    "$task_engine" build -t "$task_image" "$task_dir"
+  fi
+fi
+if [[ -n "$task_expected" ]]; then
+  task_current="$("$task_engine" image inspect --format '{{.Id}}' "$task_image")"
+  if [[ "${task_current#sha256:}" != "${task_expected#sha256:}" ]]; then
+    printf '%s\n' 'Loaded image ID does not match this release.' >&2; exit 2
+  fi
+fi
+task_output="${SEEKGNOMES_RESULTS_DIR:-$task_dir/results}"
+mkdir -p -- "$task_output"
+task_output="$(CDPATH= cd -- "$task_output" && pwd -P)"
+task_args=(run --rm --init --read-only --cap-drop ALL
+  --security-opt seccomp=unconfined --security-opt apparmor=unconfined
+  --pids-limit 256 --memory "${SEEKGNOMES_MEMORY:-16g}" --cpus "$task_cpus"
+  --tmpfs /tmp:rw,nosuid,nodev,size=1g --user "$(id -u):$(id -g)"
+  -v "$task_output:/home/ubuntu/Mooke/Eureka/Projects/QuantumManyBodyVariational/runs:rw"
+  -e SEEKGNOMES_API_KEY -e SEEKGNOMES_API_BASE_URL -e SEEKGNOMES_MODEL
+  -e SEEKGNOMES_COMPANY -e SEEKGNOMES_HARNESS -e SEEKGNOMES_API_PROTOCOL
+  -e SEEKGNOMES_MODEL_CONTEXT_TOKENS -e SEEKGNOMES_CONSTRUCTOR_OUTPUT_TOKENS
+  -e SEEKGNOMES_CPUS -e SEEKGNOMES_CONSTRUCTOR_ACTIVE_SECONDS -e SEEKGNOMES_CONSTRUCTOR_INPUT_TOKENS)
+if [[ "$task_engine" == podman ]]; then
+  task_args+=(--userns=keep-id --security-opt unmask=ALL --log-driver k8s-file)
+else
+  task_args+=(--security-opt systempaths=unconfined)
+fi
+if [[ -t 0 && -t 1 ]]; then task_args+=(-it); else task_args+=(-i); fi
+exec "$task_engine" "${task_args[@]}" "$task_image" "$@"

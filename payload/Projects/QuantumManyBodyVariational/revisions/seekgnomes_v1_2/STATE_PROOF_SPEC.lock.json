@@ -1,0 +1,37 @@
+{
+  "candidate_definition_holes": [],
+  "fixed_target": "GeneratedState.ProofObligation",
+  "generated_namespace": "GeneratedState",
+  "kind": "state-format-fixed-goal-kernel-v1",
+  "language_version": "state-format-v1",
+  "legacy_lock_sha256": "79ab32f36935cfc63b1ead0b2199b697b77d5c336c4c7db7eac2b728fb84c3ba",
+  "mpmath_version": "1.3.0",
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "precision": {
+    "precision_bits": 40,
+    "series_terms": 32,
+    "sqrt_bits": 40
+  },
+  "required_theorem": "Submission.accepted",
+  "source_sha256": {
+    "revisions/seekgnomes_v1_2/state_callbacks.py": "e35add8e6d67af53045e7250e894a9bc19b887bc2f978563f55c77450be598a5",
+    "revisions/seekgnomes_v1_2/state_verifier.py": "fed90db53cb1c72de37cacb95fcc20a30dea16bf8a10cf531118aeb9e5f932d7",
+    "src/correlator_energy.py": "0b2c95d8e0d89ce7af7f6ce1d7906d315306ba03ad745810ccd5e61da9bc2fe6",
+    "src/correlator_float_guard.py": "16269f0d396ade76f6519f5e507296e40e727e77479651d1ff179217bcea36f7",
+    "src/correlator_hybrid_branch.py": "f6d5c8ab07e8ea8216011ba107ef4506f6ceae4578c69d5c64a988eda5a5cd0e",
+    "src/correlator_rational_math.py": "4b580bd3cba1b58c2e188730abae97aa6537f6463ec2c8b71865fb2ac2b6d930",
+    "src/rational_text.py": "2242a1143f0fec5d5aee340a9bfe33d110d143f9e0e04c07369b0a7bc4c91927",
+    "src/state_format.py": "336476fe975dfc2d7dd9a64463f10a37c9079c922b6f7b8721611016d89af5ff",
+    "src/state_format_eval.py": "d4a5435ee8f880d8d6a365554d22d98494346d2a0ec63498cccc5ee038be63b5",
+    "src/state_format_ir.py": "7470741558a6ac952cdf5d013e2654476a27e8248fa0e828d7babd907bed57b4",
+    "src/state_format_lean.py": "ce22849f40286f4bdd31917f6f2b1b108ede545ba1718d4f85768ae20eb29066",
+    "src/state_format_math.py": "62de96eb682dce4bc1bc10e59bc7b997cb2f0a9f6b378b04c45220a7f8fa7b6e",
+    "src/state_format_numeric.py": "d15b11758679ea1c4fabeed33a358528b795c4c4656ddfc50fe6f2e179a51739",
+    "src/state_format_parse.py": "3722c846d6f9659719026a4a5b88e00ed0fb770c7a5c0fca508868e38229ebee"
+  },
+  "spec": "state-format-proof/v1"
+}

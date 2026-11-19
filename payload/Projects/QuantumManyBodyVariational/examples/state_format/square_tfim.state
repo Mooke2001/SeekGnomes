@@ -1,0 +1,39 @@
+# Structured version of the archived task-13 dimer correlator.
+
+def single(p: Pauli) -> Real:
+    if p == X:
+        return 7696 / 10068
+    if p == Z:
+        return 6448 / 10068
+    return 0
+
+def pair_value(a: Pauli, b: Pauli) -> Real:
+    if a == X and b == X:
+        return 6224 / 10068
+    if a == Y and b == Y:
+        return -748 / 10068
+    if a == Z and b == Z:
+        return 4592 / 10068
+    if (a == X and b == Z) or (a == Z and b == X):
+        return 4588 / 10068
+    return 0
+
+def contribution(P: Word, site: Factor, axis: Int, shift: Int) -> Real:
+    pos = site.cell
+    delta = -1 if (pos[axis] - shift) % 2 == 1 else 1
+    neighbor = Cell([
+        pos[0] + (delta if axis == 0 else 0),
+        pos[1] + (delta if axis == 1 else 0)
+    ])
+    other = pauli_at(P, neighbor, site.qubit)
+    if other == I:
+        return single(site.pauli)
+    if delta == 1:
+        return pair_value(site.pauli, other)
+    return 1
+
+def tiling(P: Word, axis: Int, shift: Int) -> Real:
+    return prod([contribution(P, site, axis, shift) for site in factors(P)])
+
+def f(P: Word) -> Real:
+    return (tiling(P, 0, 0) + tiling(P, 0, 1) + tiling(P, 1, 0) + tiling(P, 1, 1)) / 4

@@ -1,0 +1,17 @@
+/runtime/
+mathlib-packages/
+science-wheels/
+harbor-wheels/
+harness-assets/
+docker-base/
+results/
+seekgnomes-image.tar.gz
+image.sha256
+image-id.txt
+build-image-id.txt
+*.tar
+*.tar.gz
+__pycache__/
+/.seekgnomes-native-build/
+/.seekgnomes-zcode-build/
+/payload/Projects/QuantumManyBodyVariational/runs/

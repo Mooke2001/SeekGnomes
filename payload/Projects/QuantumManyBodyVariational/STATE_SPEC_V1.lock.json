@@ -1,0 +1,73 @@
+{
+  "spec": "infinite-state-spec/v1",
+  "scope": {
+    "dimensions": [
+      2,
+      3
+    ],
+    "state": "all finite-support Hermitian Pauli correlators with all-region positivity and exact TI",
+    "requires_finite_system_sequence": false,
+    "task": "2D/3D per-qubit TFIM; comparator fixture fixes 2D J=g=1"
+  },
+  "semantic_files": [
+    "lean/QuantumManyBodyVariational/LocalPauli.lean",
+    "lean/QuantumManyBodyVariational/PauliRecovery.lean",
+    "lean/QuantumManyBodyVariational/StateLimits.lean",
+    "lean/QuantumManyBodyVariational/CorrelatorStates.lean",
+    "lean/QuantumManyBodyVariational/TrustedStateSpec.lean",
+    "lean/QuantumManyBodyVariational/TrustedTasks.lean"
+  ],
+  "candidate_definition_holes": [
+    "Submission.f",
+    "Submission.bound"
+  ],
+  "required_theorems": [
+    "Submission.accepted"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "lean_version": "4.35.0",
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "toolchain_binary_sha256": {
+    "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+    "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6"
+  },
+  "source_sha256": {
+    "INFINITE_STATE_LEAN.md": "f8fe68915ec08ce8913a60e17711ca557b1e9e398288452b5b0b6ca31590a7b7",
+    "STATE_SPEC_V1.md": "0aba63215474cc623f0096a8eb1ec60ed2ca782d4ca1924dca1534af068ae11a",
+    "lean/InfiniteStateAudit.lean": "2c1989ac9ec53119ba3d23b60281abed6e11c5d14cd784350327e28f31a384f6",
+    "lean/QuantumManyBodyVariational/Certificates.lean": "5bb6f5d550e5c17fb1323c5004f0ab4a7d27aa19664160e0bc89361ab6b492a1",
+    "lean/QuantumManyBodyVariational/CorrelatorStates.lean": "17257df90137eb64bed5d1a3c43a440bf48e14ce7e152aeb706108de0e375e3d",
+    "lean/QuantumManyBodyVariational/GlobalMarginals.lean": "b6df510cca1aed1040395ffbd9d5a1e8393c105b19c3be5abb9412c05d8e0c11",
+    "lean/QuantumManyBodyVariational/InfiniteStateCertificates.lean": "f6544b7d002ca199ae4c54327657b87aac1fd4b75abc908a89e216a64c45e6ed",
+    "lean/QuantumManyBodyVariational/LocalMarginals.lean": "202b0a50e9a08567b345902162cc8f3e4c88876282894c209c93b87a149033cc",
+    "lean/QuantumManyBodyVariational/LocalPauli.lean": "4f7fe9e575b064009e4f4c67f4d6663b8fbd64e787f8831fb4c4bd16d9ec4362",
+    "lean/QuantumManyBodyVariational/PauliRecovery.lean": "b90e164d14a70a4542ad5833d5052317a61a844d967171def33ab7f731cdace9",
+    "lean/QuantumManyBodyVariational/SpecChecks/Challenge.lean": "55577c9d17972d47260c0d6a645d1b40ec054f60618cc9ab542108804b04130a",
+    "lean/QuantumManyBodyVariational/SpecChecks/ExtraAssumption.lean": "e6bb2906575b896880d1f9e786071a91354fa1e05616215a193603edd678788c",
+    "lean/QuantumManyBodyVariational/SpecChecks/ForbiddenAxiom.lean": "1cfe1d774cb26faabfd3505ff9ee87815536ccb7d1b2cc88c8f3607357b7b223",
+    "lean/QuantumManyBodyVariational/SpecChecks/RewrittenSpec.lean": "8da1f2bf1f8467e77ed33f3950ca4eafdb69902b617c06499248163f002a6ce3",
+    "lean/QuantumManyBodyVariational/SpecChecks/Solution.lean": "1f3d42f15c4a3769df1a990ab19296f445801e0af7fb46d3b41ef567a52a5668",
+    "lean/QuantumManyBodyVariational/SpecChecks/WrongGoal.lean": "73af16f0ac8020e8877eff16d6633d9356aea0a89cae36631f69aae0a9390953",
+    "lean/QuantumManyBodyVariational/SpecChecks/WrongTask.lean": "eac590f68de84d5adce37c2a710ac2d69f7e95e49ed629c3c55900e0d9aaa1ab",
+    "lean/QuantumManyBodyVariational/StateClosure.lean": "619c78503c2abb31a5626acb2862f6c0dd51b0aebc4ad62b1dcaa9606f11e6b8",
+    "lean/QuantumManyBodyVariational/StateCounterexample.lean": "f6aa032f17c19572dc91cd443f3086113de4fa7106814170e1fcb945d31a9853",
+    "lean/QuantumManyBodyVariational/StateExamples.lean": "d11a3f8052fb563a8bf581f5e82f24c4d21619e50d3a3ac262b1d875c1c185f4",
+    "lean/QuantumManyBodyVariational/StateLimits.lean": "e2173a3374649155a6bdc4cc8833535cb82e345f5e0bcf72803f3251973471ca",
+    "lean/QuantumManyBodyVariational/TrustedSpecExamples.lean": "ee8c7fbf96ae40c0abbf0036642904f751cf9a758c63bc5f8de8225644501d7a",
+    "lean/QuantumManyBodyVariational/TrustedStateSpec.lean": "091a9f4b9cd8c7ac38e5689e76e8fb5e7652b7483c570e239b5cbb50b23929da",
+    "lean/QuantumManyBodyVariational/TrustedTasks.lean": "3e46fadae89addeaa3854bcb5fa881bf933fc1c2ad992119c040ff85937d2b51",
+    "lean/QuantumManyBodyVariational.lean": "b8edb0981d7b56fecbefb1ee0ebe116fd87db85dde0632ba1a4f8f9d28d57394",
+    "lean/lake-manifest.json": "606bdece19aaa8d2c603a08d82af1c2a0f5a99a455168cd42535ae9daf4df76e",
+    "lean/lakefile.toml": "d054ca79e7d272cee113ab7c153244353ddc0db77e078b8e2520cb5b55235861",
+    "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lean/state-spec-comparator.json": "4d68c219fc176282f11b32fa1e6392322171434ca495f2c388b48b877035698b",
+    "scripts/check_infinite_states.py": "f0b2aa5277fad0bf24d54ef69c9e3ed1ae8bfe48afb7ac9e5f952e413bebc45a",
+    "scripts/check_state_spec.py": "5477e59ab7fb73405ff6185c75d8d5b5c97ca279e60a2997fcc8173fc60920a9"
+  }
+}

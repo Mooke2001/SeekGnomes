@@ -1,0 +1,1 @@
+{"id":"v2-two-qubit-smoke","dimension":1,"qubits_per_cell":2,"energy_normalization":"per_qubit","terms":[{"coefficient":"-1","word":[{"cell":[0],"qubit":0,"pauli":"X"}]},{"coefficient":"-1","word":[{"cell":[0],"qubit":1,"pauli":"X"}]},{"coefficient":"-1","word":[{"cell":[0],"qubit":0,"pauli":"Z"},{"cell":[0],"qubit":1,"pauli":"Z"}]}]}

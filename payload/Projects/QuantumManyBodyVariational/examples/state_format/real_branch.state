@@ -1,0 +1,7 @@
+# Subtracting these two values as doubles would give zero.
+
+def f(P: Word) -> Real:
+    threshold: Real = 10 ** 20
+    offset: Real = 1 / 10 ** 50
+    spin: Real = 1 if threshold + offset > threshold else -1
+    return prod([spin if p == Z else Real(0) for p in labels(P)])

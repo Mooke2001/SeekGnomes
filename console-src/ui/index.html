@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="seekgnomes-token" content="__SG_CSRF__">
+  <title>SeekGnomes Local Console</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#main">Seek<span>Gnomes</span></a>
+      <nav aria-label="Console">
+        <a href="#setup">New run</a>
+        <a href="#runs">Run history</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Local benchmark console</h1>
+      <p>Connect a language model and evaluate its quantum-state constructions on the SeekGnomes Hamiltonian library.</p>
+    </section>
+
+    <noscript><p class="notice">Enable JavaScript to configure and monitor a benchmark run.</p></noscript>
+    <form id="setup" aria-label="New benchmark run" autocomplete="off">
+      <div class="setup-grid">
+        <div class="settings">
+          <section class="panel" aria-labelledby="connection-heading">
+            <h2 id="connection-heading">Model connection</h2>
+            <div class="field-grid">
+              <label class="field">
+                Model company
+                <select id="company" required disabled>
+                  <option value="">Loading companies…</option>
+                </select>
+              </label>
+              <label class="field">
+                Model ID
+                <input id="model" type="text" placeholder="Exact model ID" required spellcheck="false">
+              </label>
+              <label class="field full">
+                API base URL
+                <input id="api-base-url" type="url" placeholder="https://provider.example/v1" required spellcheck="false">
+              </label>
+              <label class="field full">
+                API key
+                <input id="api-key" type="password" placeholder="Enter your API key" required autocomplete="off" spellcheck="false">
+              </label>
+            </div>
+            <div class="harness-line"><span>Agent harness</span><strong id="harness">—</strong></div>
+            <details id="model-settings" class="details">
+              <summary>Model settings</summary>
+              <div class="field-grid detail-fields">
+                <label class="field">
+                  API protocol
+                  <select id="api-protocol" required disabled></select>
+                </label>
+                <label class="field">
+                  Context window
+                  <span class="unit-field"><input id="model-context-tokens" type="number" min="1" step="1" placeholder="Default" aria-label="Context window in tokens" aria-describedby="context-help"><span aria-hidden="true">tokens</span></span>
+                </label>
+              </div>
+              <p id="context-help" class="help context-help">Leave blank to use the harness default.</p>
+            </details>
+          </section>
+
+          <section class="panel" aria-labelledby="budget-heading">
+            <h2 id="budget-heading">Run budget</h2>
+            <fieldset class="budget-mode">
+              <legend>Budget mode</legend>
+              <label><input type="radio" name="budget-mode" value="tokens" checked> Tokens</label>
+              <label><input type="radio" name="budget-mode" value="time"> Time</label>
+            </fieldset>
+            <div class="field-grid">
+              <label id="token-field" class="field full">
+                Main budget per task
+                <span class="unit-field"><input id="token-limit" type="number" min="1" step="1" value="100000" required aria-label="Main budget per task in tokens" aria-describedby="budget-note"><span aria-hidden="true">tokens</span></span>
+              </label>
+              <label id="time-field" class="field full" hidden>
+                Main budget per task
+                <span class="unit-field"><input id="time-limit" type="number" min="1" step="1" value="240" required disabled aria-label="Main budget per task in minutes" aria-describedby="budget-note"><span aria-hidden="true">min</span></span>
+              </label>
+              <p id="budget-note" class="help full">The main budget covers the Constructor. Eligible closing work can use up to 50,000 additional tokens per task. Formalization is outside the Constructor budget.</p>
+              <label class="field">
+                Total CPU cores
+                <input id="cpus" type="number" min="2" step="1" value="2" required aria-describedby="parallel-help">
+              </label>
+              <label class="field">
+                Parallel tasks
+                <input id="parallel-tasks" type="number" min="1" max="1" step="1" value="1" required aria-describedby="parallel-help">
+              </label>
+              <p id="parallel-help" class="help full">Limited by the total CPU cores and the number of selected tasks.</p>
+            </div>
+            <div class="run-options">
+              <label class="option">
+                <input id="web" type="checkbox" aria-describedby="web-note">
+                <span><strong>Allow web access</strong><small id="web-note">Enable benchmark web tools for the agent.</small></span>
+              </label>
+              <label class="option">
+                <input id="share" type="checkbox" aria-describedby="share-note" disabled>
+                <span><strong>Submit results for review automatically</strong><small id="share-note">Checking whether submission is available…</small></span>
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel task-panel" aria-labelledby="tasks-heading">
+          <div class="panel-heading">
+            <div>
+              <h2 id="tasks-heading">Physical models</h2>
+              <p class="help" id="task-help">Choose 5–50 tasks from the benchmark library.</p>
+            </div>
+            <output id="selected-count" aria-live="polite">0 selected</output>
+          </div>
+          <div class="filter-grid">
+            <label class="field">
+              Search tasks
+              <input id="task-search" type="search" placeholder="Name, group, or task ID" disabled>
+            </label>
+            <label class="field">
+              Dimension
+              <select id="task-dimension" disabled>
+                <option value="">All</option>
+                <option value="1">1D</option>
+                <option value="2">2D</option>
+                <option value="3">3D</option>
+              </select>
+            </label>
+          </div>
+          <div class="task-actions">
+            <button id="select-tasks" class="text-button" type="button" disabled>Select all</button>
+            <button id="clear-tasks" class="text-button" type="button" disabled>Clear selection</button>
+            <span id="visible-count" aria-live="polite"></span>
+          </div>
+          <ul id="task-list" aria-label="Tasks">
+            <li class="task-empty">Loading benchmark tasks…</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="form-footer">
+        <p id="start-message" role="status">Loading benchmark configuration…</p>
+        <button id="start" class="button primary" type="submit" disabled>Start benchmark</button>
+      </div>
+    </form>
+
+    <section id="runs" class="runs" aria-labelledby="runs-heading">
+      <div class="panel-heading">
+        <h2 id="runs-heading">Run history</h2>
+        <button id="refresh-runs" class="text-button" type="button">Refresh</button>
+      </div>
+      <p id="run-message" class="help" role="status">Loading runs…</p>
+      <ul id="run-list" aria-label="Benchmark runs"></ul>
+    </section>
+  </main>
+</body>
+</html>

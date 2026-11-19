@@ -1,0 +1,42 @@
+module
+
+public import QuantumManyBodyVariational.InfiniteStateCertificates
+public import QuantumManyBodyVariational.TrustedSpecExamples
+
+open QuantumManyBodyVariational.InfiniteState
+
+#print axioms LocalPauli.trace_reconstruct
+#print axioms LocalPauli.trace_reconstruct_mul_pauliTensor
+#print axioms LocalPauli.partialTrace_reconstruct
+#print axioms localDensity_trace
+#print axioms localDensity_expectation
+#print axioms localDensity_partialTrace
+#print axioms IsLegal.trace_one
+#print axioms isLegal_of_factorization
+#print axioms posSemidef_of_entrywise_tendsto
+#print axioms LocalPauli.posSemidef_reconstruct_of_tendsto
+#print axioms normalized_of_tendsto
+#print axioms isLegal_of_tendsto
+#print axioms isTranslationInvariant_of_tendsto
+#print axioms isTranslationInvariantState_of_tendsto
+#print axioms tracial_isLegal
+#print axioms tracial_isTranslationInvariantState
+#print axioms plus_isLegal
+#print axioms plus_isTranslationInvariantState
+#print axioms localDensity_mix
+#print axioms IsLegal.mix
+#print axioms IsTranslationInvariant.mix
+#print axioms IsTranslationInvariantState.mix
+#print axioms badWitness_quadratic
+#print axioms badOneSite_not_posSemidef
+#print axioms allOne_counterexample
+#print axioms TrustedStateSpec.LocalEnergy.matrix_isHermitian
+#print axioms TrustedStateSpec.LocalEnergy.value_eq_trace
+#print axioms TrustedStateSpec.LocalEnergy.value_error_bound
+#print axioms TrustedStateSpec.LocalEnergy.value_le_upper
+#print axioms TrustedStateSpec.accepted_trace_bound
+#print axioms TrustedSpecExamples.tfim2D_plus_accepted
+#print axioms TrustedSpecExamples.tfim3D_plus_accepted
+#print axioms TrustedSpecExamples.tfim2D_tracial_accepted
+#print axioms TrustedSpecExamples.tfim3D_tracial_accepted
+#print axioms TrustedSpecExamples.allOne_not_accepted

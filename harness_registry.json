@@ -1,0 +1,309 @@
+{
+  "schema": "seekgnomes-company-harness-registry/v1.2",
+  "frozen_at": "2026-11-17",
+  "policy": "Use the model company official harness; use Codex only when no official harness has been verified. Missing Harbor adapters never trigger fallback.",
+  "fallback": "codex",
+  "harnesses": {
+    "codex": {
+      "company": "openai",
+      "harbor_agent": "codex",
+      "version": "0.167.1",
+      "binary": "codex",
+      "api_protocol": "responses",
+      "allowed_api_protocols": [
+        "responses"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@openai/codex",
+        "version": "0.167.1",
+        "tarball": "https://registry.npmjs.org/@openai/codex/-/codex-0.167.1.tgz",
+        "integrity": "sha512-39uApTRT9bkhE8tMXTIfZxaZ27oi7hPqWoF2Coyp+iQFAD3NVHgH838IYVUfJaX85leMSP2s4JOmVw0mMSCN5Q==",
+        "engines": {
+          "node": ">=16"
+        },
+        "local_asset_allowed": true
+      },
+      "evidence": [
+        "https://github.com/openai/codex",
+        "https://registry.npmjs.org/@openai%2fcodex/0.167.1"
+      ]
+    },
+    "claude-code": {
+      "company": "anthropic",
+      "harbor_agent": "claude-code",
+      "version": "2.1.326",
+      "binary": "claude",
+      "api_protocol": "messages",
+      "allowed_api_protocols": [
+        "messages"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@anthropic-ai/claude-code",
+        "version": "2.1.326",
+        "tarball": "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.1.326.tgz",
+        "integrity": "sha512-F7OqxXKogQYUs+RN1903IWlXGuxn8iwAykx+umRbDKvoBeK0Xm6cdgQx9auu5dtsB+DczN58/EFrlaU8pLfgJg==",
+        "engines": {
+          "node": ">=22.0.0"
+        }
+      },
+      "evidence": [
+        "https://code.claude.com/docs/en/headless",
+        "https://registry.npmjs.org/@anthropic-ai%2fclaude-code/2.1.326"
+      ]
+    },
+    "kimi-code": {
+      "company": "moonshot",
+      "harbor_agent": "kimi-code",
+      "version": "2.6.2",
+      "binary": "kimi",
+      "api_protocol": "chat_completions",
+      "allowed_api_protocols": [
+        "chat_completions",
+        "responses",
+        "messages",
+        "gemini"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@moonshot-ai/kimi-code",
+        "version": "2.6.2",
+        "tarball": "https://registry.npmjs.org/@moonshot-ai/kimi-code/-/kimi-code-2.6.2.tgz",
+        "integrity": "sha512-2cREgK8n2voOsANP8gjPZIbCghzdbnOXbyjvEUPExhQxtfAvo9ke4OLGNYtFsMipFttLs22h8iZtcNSP35bICg==",
+        "engines": {
+          "node": ">=22.19.0"
+        }
+      },
+      "evidence": [
+        "https://github.com/MoonshotAI/kimi-code",
+        "https://registry.npmjs.org/@moonshot-ai%2fkimi-code/2.6.2"
+      ]
+    },
+    "gemini-cli": {
+      "company": "google",
+      "harbor_agent": "gemini-cli",
+      "version": "0.68.0",
+      "binary": "gemini",
+      "api_protocol": "gemini",
+      "allowed_api_protocols": [
+        "gemini"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@google/gemini-cli",
+        "version": "0.68.0",
+        "tarball": "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.68.0.tgz",
+        "integrity": "sha512-eq7AWY+YCijNGKVwyiRjN+GuOdXU/djuOZhX18p+HDmNyUqFdqH7C5V6vDJLl1uffhRPhGijePV+YvY8lymrbQ==",
+        "engines": {
+          "node": ">=20"
+        }
+      },
+      "evidence": [
+        "https://github.com/google-gemini/gemini-cli",
+        "https://registry.npmjs.org/@google%2fgemini-cli/0.68.0"
+      ]
+    },
+    "grok-build": {
+      "company": "xai",
+      "harbor_agent": "grok-build",
+      "version": "1.0.88",
+      "binary": "grok",
+      "api_protocol": "responses",
+      "allowed_api_protocols": [
+        "responses",
+        "chat_completions",
+        "messages"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@xai-official/grok",
+        "version": "1.0.88",
+        "tarball": "https://registry.npmjs.org/@xai-official/grok/-/grok-1.0.88.tgz",
+        "integrity": "sha512-Nt7VOt27j6POJia3KPpg4W5O3A6NQMHGf3wnhjbyD7DM4gTslFADz/bflKr29Sqgu5eLIqWDb8gm9wDFSr9oWg==",
+        "engines": {
+          "node": ">=20"
+        }
+      },
+      "evidence": [
+        "https://github.com/xai-org/grok-build",
+        "https://registry.npmjs.org/@xai-official%2fgrok/1.0.88"
+      ]
+    },
+    "qwen-code": {
+      "company": "alibaba",
+      "harbor_agent": "qwen-coder",
+      "version": "0.27.4",
+      "binary": "qwen",
+      "api_protocol": "chat_completions",
+      "allowed_api_protocols": [
+        "chat_completions"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@qwen-code/qwen-code",
+        "version": "0.27.4",
+        "tarball": "https://registry.npmjs.org/@qwen-code/qwen-code/-/qwen-code-0.27.4.tgz",
+        "integrity": "sha512-hXlg0mqN5zaZC385VO3NZRxBBHP3+SiWBFwj7wJptwA5rUS0vNdOMbJ/W4VBJgRY7LbC2UzHsPFHl2Ot0URJGQ==",
+        "engines": {
+          "node": ">=22.0.0"
+        }
+      },
+      "evidence": [
+        "https://github.com/QwenLM/qwen-code",
+        "https://registry.npmjs.org/@qwen-code%2fqwen-code/0.27.4"
+      ]
+    },
+    "dsh": {
+      "company": "deepseek",
+      "harbor_agent": "seekgnomes-native",
+      "version": "0.2.2-rc.1",
+      "binary": "dsh",
+      "api_protocol": "messages",
+      "allowed_api_protocols": [
+        "messages"
+      ],
+      "harbor_integration": "custom",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@deepseek-ai/dsh",
+        "version": "0.2.2-rc.1",
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/dsh/-/dsh-0.2.2-rc.1.tgz",
+        "integrity": "sha512-ijR9UEVYkG15Q/Q79JzvzLBzQOQfc63VLr9n6flpwHPhr5IKn2UxthnSoto/P9l7qGd7pPvI1Ra6TW7LH3oKpg==",
+        "engines": {
+          "node": ">=24.9.0"
+        }
+      },
+      "evidence": [
+        "https://github.com/deepseek-ai/deepseek-harness",
+        "https://registry.npmjs.org/@deepseek-ai%2fdsh/0.2.2-rc.1"
+      ]
+    },
+    "mimo-code": {
+      "company": "xiaomi",
+      "harbor_agent": "mimo",
+      "version": "0.1.17",
+      "binary": "mimo",
+      "api_protocol": "chat_completions",
+      "allowed_api_protocols": [
+        "chat_completions"
+      ],
+      "harbor_integration": "builtin",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "npm",
+        "package": "@mimo-ai/cli",
+        "version": "0.1.17",
+        "tarball": "https://registry.npmjs.org/@mimo-ai/cli/-/cli-0.1.17.tgz",
+        "integrity": "sha512-W3pI7a/2OEPp37lZ8mnGR81/cYlVFHTNlMGdduSk7CBosgpvBfkdSOfuQeXR/V0ctrIOQ3z/nsGu57Ah9etPdA==",
+        "engines": {
+          "node": ">=20.10.0"
+        }
+      },
+      "evidence": [
+        "https://github.com/XiaomiMiMo/MiMo-Code",
+        "https://registry.npmjs.org/@mimo-ai%2fcli/0.1.17"
+      ]
+    },
+    "zcode": {
+      "company": "zai",
+      "harbor_agent": "seekgnomes-native",
+      "version": "0.17.1",
+      "binary": "zcode",
+      "api_protocol": "chat_completions",
+      "allowed_api_protocols": [
+        "chat_completions",
+        "responses",
+        "messages"
+      ],
+      "harbor_integration": "custom",
+      "supported": true,
+      "unsupported_reason": null,
+      "install": {
+        "kind": "bundled-source-build",
+        "repository": "https://github.com/zai-org/ZCode",
+        "commit": "fec975905a2abd4c07e35c40d51fa097a2258ec9",
+        "subdirectory": "apps/zcode-cli",
+        "version": "0.17.1",
+        "note": "Built from the exact official commit with the upstream pnpm lock. The self-contained Linux runtime passed actual --version and --help probes; no paid model call was made.",
+        "runtime_archive": "zcode-source-build/zcode-0.17.1-linux-x64-runtime.tar.gz",
+        "runtime_sha256": "edd1c50b70e6b055cad6d0e5c3a3d28efcaea11f504f57b2b797052cd6650b63",
+        "entrypoint": "dist/zcode.cjs",
+        "node": {
+          "version": "24.14.0",
+          "archive": "zcode-source-build/node-v24.14.0-linux-x64.tar.xz",
+          "sha256": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df"
+        },
+        "provenance": "zcode-source-build/build-provenance.json"
+      },
+      "evidence": [
+        "https://github.com/zai-org/ZCode/tree/fec975905a2abd4c07e35c40d51fa097a2258ec9/apps/zcode-cli",
+        "https://github.com/zai-org/ZCode/releases/tag/v3.18.2"
+      ]
+    }
+  },
+  "companies": {
+    "openai": "codex",
+    "anthropic": "claude-code",
+    "moonshot": "kimi-code",
+    "google": "gemini-cli",
+    "xai": "grok-build",
+    "alibaba": "qwen-code",
+    "deepseek": "dsh",
+    "xiaomi": "mimo-code",
+    "zai": "zcode"
+  },
+  "company_aliases": {
+    "openai": "openai",
+    "anthropic": "anthropic",
+    "moonshot": "moonshot",
+    "moonshotai": "moonshot",
+    "kimi": "moonshot",
+    "google": "google",
+    "google-deepmind": "google",
+    "deepmind": "google",
+    "xai": "xai",
+    "x.ai": "xai",
+    "alibaba": "alibaba",
+    "qwen": "alibaba",
+    "deepseek": "deepseek",
+    "zai": "zai",
+    "z.ai": "zai",
+    "z-ai": "zai",
+    "zhipu": "zai",
+    "glm": "zai",
+    "xiaomi": "xiaomi",
+    "mimo": "xiaomi"
+  },
+  "harness_aliases": {
+    "claude": "claude-code",
+    "kimi": "kimi-code",
+    "gemini": "gemini-cli",
+    "grok": "grok-build",
+    "qwen": "qwen-code",
+    "qwen-coder": "qwen-code",
+    "deepseek-harness": "dsh",
+    "mimo": "mimo-code"
+  }
+}

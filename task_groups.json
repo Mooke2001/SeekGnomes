@@ -1,0 +1,1119 @@
+{
+  "schema": "seekgnomes-task-groups/v1.1",
+  "classification_basis": "Verified global exact ground-state reference for current task point; gauge-sector solvability alone is insufficient. v1.1 reclassifies24 consistently with41/42.",
+  "catalogue_sha256": "2b0e416bb005ae51e2949a66f3a19e94eb47c3c3847dbe4c761ed0b9ea1c5036",
+  "groups": {
+    "exactly_solvable": {
+      "label": "严格可解组",
+      "description": "含可积链, 对易母哈密顿量和特殊精确二聚体点."
+    },
+    "generic": {
+      "label": "一般变分组",
+      "description": "本版主评分不使用严格全局精确参考, 含24/41/42的规范扇区可解模型; 不断言每题已证明非可积."
+    }
+  },
+  "reference_completeness": "Exact-group amplitude requires its verified exact-theory energy reference; no baseline fallback. Generic-group amplitude uses public baseline.",
+  "tasks": {
+    "01": {
+      "name": "Transverse-field Ising chain",
+      "group": "exactly_solvable",
+      "subclass": "free_fermion",
+      "catalogue_solvability": "E",
+      "task_sha256": "613b113c95c68736c40db66c85e60ffc16ac63b2aaa4ae12d2c74408fdd4ea43",
+      "reason": "Jordan-Wigner/Bogoliubov可解的1D横场Ising链.",
+      "sources": [
+        "https://www.math.ucdavis.edu/~bxn/lieb1961.pdf"
+      ],
+      "ground_energy_reference": {
+        "formula": "e0=-(1/(2*pi))*integral_0^(2*pi) sqrt(J^2+g^2-2*J*g*cos(k)) dk = -4/pi at J=g=1",
+        "parameters": {
+          "J": "1",
+          "g": "1"
+        },
+        "sources": [
+          "https://www.math.ucdavis.edu/~bxn/lieb1961.pdf"
+        ],
+        "source_locator": "Jordan-Wigner quadratic-chain diagonalization; TFIM is the anisotropic XY limit after a spin-axis rotation",
+        "normalization_checks": [
+          "g=0 gives -abs(J)",
+          "J=0 gives -abs(g)"
+        ],
+        "status": "ready",
+        "kind": "analytic_formula_numerical_evaluation",
+        "value": -1.2732395447351628,
+        "value_decimal": "-1.27323954473516268615107010698011",
+        "task_sha256": "7beae8caab90722a3ad75c3a32bc072d5f03c757bbea1157156c6e91bfc48455",
+        "normalization": "per_qubit",
+        "operator_convention": "Pauli sigma, not S=sigma/2",
+        "global_ground_state": true,
+        "reference_scope": "thermodynamic_limit",
+        "evaluation": {
+          "method": "mpmath closed-form or quadrature evaluation of exact dispersion",
+          "working_decimal_precisions": [
+            50,
+            70
+          ],
+          "stored_significant_decimal_digits": 32,
+          "reported_absolute_tolerance": 1e-12,
+          "error_is_rigorous": false,
+          "note": "Precision refinement and independent momentum-grid/finite-chain checks support the numerical decimal; this is not a certified interval enclosure."
+        },
+        "task_id": "01",
+        "numerical_tolerance": 1e-12
+      }
+    },
+    "02": {
+      "name": "Mixed-field Ising chain",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "925dd49f00ccbea5b93336c8206182b7c1444babbe1b3865e230d8f009ce882d",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/2307.16703"
+      ],
+      "ground_energy_reference": null
+    },
+    "03": {
+      "name": "ANNNI chain",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "05054f14eb11144bea9d452f8f4ef0d0c9202eba15ff1a8fce708586254f1066",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/9604051"
+      ],
+      "ground_energy_reference": null
+    },
+    "04": {
+      "name": "Anisotropic XY chain",
+      "group": "exactly_solvable",
+      "subclass": "free_fermion",
+      "catalogue_solvability": "E",
+      "task_sha256": "5ff2e8587ec1240519d46d3d8ab0f1a56bd89831d86c295e68a014a9559acf83",
+      "reason": "Jordan-Wigner/Bogoliubov可解的各向异性XY链.",
+      "sources": [
+        "https://www.math.ucdavis.edu/~bxn/lieb1961.pdf"
+      ],
+      "ground_energy_reference": {
+        "formula": "e0=-(1/pi)*integral_0^pi sqrt((h-(Jx+Jy)*cos(k))^2+(Jx-Jy)^2*sin(k)^2) dk",
+        "parameters": {
+          "Jx": "1",
+          "Jy": "1/2",
+          "h": "3/4"
+        },
+        "sources": [
+          "https://www.math.ucdavis.edu/~bxn/lieb1961.pdf"
+        ],
+        "source_locator": "Anisotropic XY free-fermion solution, translated explicitly to Pauli couplings and field",
+        "normalization_checks": [
+          "Jx=Jy=0 gives -abs(h)",
+          "Jy=h=0 gives -abs(Jx)",
+          "Jx=Jy=1,h=0 gives -4/pi"
+        ],
+        "status": "ready",
+        "kind": "analytic_formula_numerical_evaluation",
+        "value": -1.1776696050001751,
+        "value_decimal": "-1.17766960500017517139706819601499",
+        "task_sha256": "7b9eeb53c93bafaacd80c788ae7cf7fb4038f41edfe8537e77d6331ddbe69fc0",
+        "normalization": "per_qubit",
+        "operator_convention": "Pauli sigma, not S=sigma/2",
+        "global_ground_state": true,
+        "reference_scope": "thermodynamic_limit",
+        "evaluation": {
+          "method": "mpmath closed-form or quadrature evaluation of exact dispersion",
+          "working_decimal_precisions": [
+            50,
+            70
+          ],
+          "stored_significant_decimal_digits": 32,
+          "reported_absolute_tolerance": 1e-12,
+          "error_is_rigorous": false,
+          "note": "Precision refinement and independent momentum-grid/finite-chain checks support the numerical decimal; this is not a certified interval enclosure."
+        },
+        "task_id": "04",
+        "numerical_tolerance": 1e-12
+      }
+    },
+    "05": {
+      "name": "Longitudinal-field XXZ chain",
+      "group": "exactly_solvable",
+      "subclass": "bethe_ansatz",
+      "catalogue_solvability": "E",
+      "task_sha256": "08d60078c6e5a7ba88612f7f14625917c42323f1ead7457f086fe7542599b8a4",
+      "reason": "纵向场XXZ链的Bethe ansatz可积结构; 此处分组不以数值近似参考充当精确能量.",
+      "sources": [
+        "https://doi.org/10.1103/PhysRev.150.327"
+      ],
+      "ground_energy_reference": {
+        "value": -2.09528018177565,
+        "kind": "exact_theory_numeric_evaluation",
+        "normalization": "per_qubit",
+        "expression": "delta-h+integral[-Q,Q] (2h-4*pi*sinh(eta)*a1(x))*rho(x) dx",
+        "formula": "eta=acosh(delta); a_n=sinh(n*eta)/(pi*(cosh(n*eta)-cos(2x))); rho+a2*rho=a1; epsilon+a2*epsilon=2h-4*pi*sinh(eta)*a1; epsilon(Q)=0",
+        "sources": [
+          "https://arxiv.org/pdf/hep-th/0505006",
+          "https://arxiv.org/pdf/0912.1739",
+          "https://doi.org/10.1103/PhysRev.150.327"
+        ],
+        "source_equations": "Kitanine et al. 1.1-1.3, 2.15-2.17, 2.26-2.33; dressed-energy boundary from variational dual",
+        "conventions": "Pauli couplings +XX+YY+1.5ZZ-(1/3)Z. Kitanine's shifted Hamiltonian requires +delta per site and field h_paper=2/3.",
+        "parameters": {
+          "delta": "3/2",
+          "h_pauli": "1/3"
+        },
+        "fermi_boundary": 1.15824375204452,
+        "magnetization_z": 0.01664571470648,
+        "lower_critical_h_pauli": 0.17317888355122063,
+        "numerical_tolerance": 1e-09,
+        "uncertainty_tolerance": 1e-09,
+        "certified_error": false,
+        "evaluation_note": "Gauss-Legendre 64/128/256 nodes agree to 2e-14. Tolerance is numerical validation, not a rigorous interval. Zero-field value is NOT used at h=1/3.",
+        "task_sha256": "9e118af2fdcac64a2888ba2ced470f5a4d39a2a4b564c3581aedf59160b39442",
+        "source": "https://arxiv.org/pdf/hep-th/0505006",
+        "status": "ready",
+        "task_id": "05"
+      }
+    },
+    "06": {
+      "name": "Zero-field XYZ chain",
+      "group": "exactly_solvable",
+      "subclass": "integrable",
+      "catalogue_solvability": "E",
+      "task_sha256": "4e5a637fd114ebc84b79cb929513023960ea031f566931f4154e01e4d0b74f38",
+      "reason": "零场XYZ链的可积结构; 未预填未经复算的能量值.",
+      "sources": [
+        "https://doi.org/10.1103/PhysRevLett.26.834"
+      ],
+      "ground_energy_reference": {
+        "value": -1.3555861298068899,
+        "kind": "exact_theory_numeric_evaluation",
+        "normalization": "per_qubit",
+        "expression": "(7/4)*[-(2+Gamma)/2 - 4*theta1(2eta|2tau)/(t*theta2(0|tau)^2*theta4(2eta|2tau))*S]",
+        "formula": "tau=i*t; zeta=1/7,Gamma=-4/7 fixed by Eq3.5; x=exp((2eta-pi)/t),r=exp(-pi/t); S=sum_n>=1 [(x^(2n)-(r/x)^n)*(1-(r/x)^n)*(1-x^(2n))]/[(1-r^(2n))*(1+x^(2n))]",
+        "sources": [
+          "https://link.springer.com/article/10.1007/s00220-024-04977-w",
+          "https://doi.org/10.1103/PhysRevLett.26.834"
+        ],
+        "source_equations": "Hagendorf and Rosengren (2024), Hamiltonian 2.1, parameter map 3.5/3.7, general Baxter energy D.2-D.3; Baxter (1982) 10.14.30",
+        "conventions": "Alternating Z rotation maps Pauli +XX+0.75YY+0.5ZZ to source -1/2 sum (2XX+1.5YY-1ZZ), then divide J by 7/4.",
+        "parameters": {
+          "zeta": "1/7",
+          "Gamma": "-4/7",
+          "scale": "7/4"
+        },
+        "eta": 1.0978425432223011,
+        "tau_imaginary": 0.9261377971889808,
+        "numerical_tolerance": 1e-11,
+        "uncertainty_tolerance": 1e-11,
+        "certified_error": false,
+        "evaluation_note": "Theta inversion and the convergent Baxter series were checked at 50/80 decimal digits. Analytic series tail bound excludes parameter solve rounding, so no certified interval is claimed.",
+        "task_sha256": "decbb58ab82c4b59b4efc6230042cb8244940204babe4f0bc6f8e7aefe57a03b",
+        "source": "https://link.springer.com/article/10.1007/s00220-024-04977-w",
+        "status": "ready",
+        "task_id": "06"
+      }
+    },
+    "07": {
+      "name": "J1-J2 Heisenberg chain (Majumdar-Ghosh point)",
+      "group": "exactly_solvable",
+      "subclass": "exact_dimer",
+      "catalogue_solvability": "P",
+      "task_sha256": "4037da5af214ce538912a731a84ff5ac1e06cc2ea45f8816b104d4aa7b108242",
+      "reason": "Majumdar-Ghosh参数点有可严格证明的二聚体基态, 可取其平移平均.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0205072"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -0.375,
+        "exact_rational": "-3/8",
+        "expression": "-3*J1/8",
+        "formula": "-3*J1/8",
+        "method": "Majumdar-Ghosh dimer ground state and triangle lower bound",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/cond-mat/0205072"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "07",
+        "task_sha256": "80efcc31ad6582f9f351e88a69e43a0bbc534334e4efadd77ecb3a05be37308a"
+      }
+    },
+    "08": {
+      "name": "Cluster chain",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "8c87cbbb210af08c35960ce5123f46088c3ac79b321ba03a6a8f1c49fedf373b",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/0004051"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/0004051"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "08",
+        "task_sha256": "d21a1a6b27e1f0eda880e5142873a918fe4d0c71a6c065de49098ff9f5ca1d9e"
+      }
+    },
+    "09": {
+      "name": "Cluster-Ising chain",
+      "group": "exactly_solvable",
+      "subclass": "free_fermion",
+      "catalogue_solvability": "E",
+      "task_sha256": "753355b2a9b5b9623b776efcec8865518b113d07115b1454bd069ac6f8d7bf89",
+      "reason": "Cluster-Ising链可化为二次费米子模型.",
+      "sources": [
+        "https://arxiv.org/abs/1503.08598"
+      ],
+      "ground_energy_reference": {
+        "formula": "e0=-(1/(2*pi))*integral_0^(2*pi) sqrt(K^2+lambda^2-2*K*lambda*cos(3*k)) dk",
+        "parameters": {
+          "K": "1",
+          "lambda": "3/4"
+        },
+        "sources": [
+          "https://arxiv.org/abs/1503.08598"
+        ],
+        "source_locator": "Eqs.(1),(6)-(9): sum positive k pairs, each pair has energy -2*sqrt(epsilon^2+delta^2)",
+        "normalization_checks": [
+          "lambda=0 gives -K, since all cluster stabilizers commute",
+          "K=0 gives -abs(lambda)",
+          "The prefactor is fixed by k>0 pair counting, not copied from the paper's printed Eq.(13)"
+        ],
+        "status": "ready",
+        "kind": "analytic_formula_numerical_evaluation",
+        "value": -1.1464797543707674,
+        "value_decimal": "-1.14647975437076737884170741636891",
+        "task_sha256": "c985cac4416ffc5e84813dec2ce2e8a8bbf064d7a9bf45164c8ada61f147a36d",
+        "normalization": "per_qubit",
+        "operator_convention": "Pauli sigma, not S=sigma/2",
+        "global_ground_state": true,
+        "reference_scope": "thermodynamic_limit",
+        "evaluation": {
+          "method": "mpmath closed-form or quadrature evaluation of exact dispersion",
+          "working_decimal_precisions": [
+            50,
+            70
+          ],
+          "stored_significant_decimal_digits": 32,
+          "reported_absolute_tolerance": 1e-12,
+          "error_is_rigorous": false,
+          "note": "Precision refinement and independent momentum-grid/finite-chain checks support the numerical decimal; this is not a certified interval enclosure."
+        },
+        "task_id": "09",
+        "numerical_tolerance": 1e-12
+      }
+    },
+    "10": {
+      "name": "Alternating compass chain",
+      "group": "exactly_solvable",
+      "subclass": "free_fermion",
+      "catalogue_solvability": "E",
+      "task_sha256": "3985134871476ae9f90007896d9b8e89624ff59e0fc89c4c89ade29043a73a08",
+      "reason": "交替compass链具有可解映射.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0702369"
+      ],
+      "ground_energy_reference": {
+        "formula": "e0=-(1/(4*pi))*integral_0^(2*pi) sqrt(Jx^2+Jz^2-2*Jx*Jz*cos(k)) dk",
+        "parameters": {
+          "Jx": "1",
+          "Jz": "3/4"
+        },
+        "sources": [
+          "https://arxiv.org/abs/cond-mat/0702369"
+        ],
+        "source_locator": "Mapping alternating XX/ZZ compass bonds to a transverse-field Ising pseudospin chain; divide its per-cell energy by two physical spins",
+        "normalization_checks": [
+          "Jz=0 gives -abs(Jx)/2",
+          "Jx=0 gives -abs(Jz)/2",
+          "Jx=Jz=1 gives -2/pi"
+        ],
+        "status": "ready",
+        "kind": "analytic_formula_numerical_evaluation",
+        "value": -0.5732398771853837,
+        "value_decimal": "-0.573239877185383689420853708184455",
+        "task_sha256": "e95b55aefc0fad37766031537e921c5dd2eebd69641aadca4be437c33b63584e",
+        "normalization": "per_qubit",
+        "operator_convention": "Pauli sigma, not S=sigma/2",
+        "global_ground_state": true,
+        "reference_scope": "thermodynamic_limit",
+        "evaluation": {
+          "method": "mpmath closed-form or quadrature evaluation of exact dispersion",
+          "working_decimal_precisions": [
+            50,
+            70
+          ],
+          "stored_significant_decimal_digits": 32,
+          "reported_absolute_tolerance": 1e-12,
+          "error_is_rigorous": false,
+          "note": "Precision refinement and independent momentum-grid/finite-chain checks support the numerical decimal; this is not a certified interval enclosure."
+        },
+        "task_id": "10",
+        "numerical_tolerance": 1e-12
+      }
+    },
+    "11": {
+      "name": "J-Q2 chain",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "9d3ec915e0259f6534d1f93a315bf3b16fcc535dddfc695e10e917518c2d53e7",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://iaizzi.me/wp-content/uploads/2019/01/physrevb.95.174436.pdf"
+      ],
+      "ground_energy_reference": null
+    },
+    "12": {
+      "name": "Two-leg Heisenberg ladder",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "69bb1df18a889f6110183d80604fd6e766d95ccfd66d7e6d2e9bf1db62856913",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://doi.org/10.1103/PhysRevLett.73.886"
+      ],
+      "ground_energy_reference": null
+    },
+    "13": {
+      "name": "Square TFIM",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "e9dd10eac3741878c87869a8892ddf007bdef3fbea3b08c76771f4c661ad04a1",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/2005.13592"
+      ],
+      "ground_energy_reference": null
+    },
+    "14": {
+      "name": "Triangular AF TFIM",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "82762ca9fd7603e35965bd6c7782a656ddf135b62e1b8001d682458d5f77eefb",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0011250"
+      ],
+      "ground_energy_reference": null
+    },
+    "15": {
+      "name": "Square J1-J2 Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "8c7886e82c4b930e23d895d1db6a625c2724823d0719409fcd9bc29fd507c503",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/0909.3723"
+      ],
+      "ground_energy_reference": null
+    },
+    "16": {
+      "name": "Triangular AF Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "3c82f624cfa6738f597909df4f6d955fea8a063567575c66fd5cbc72ae856689",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/0705.2746"
+      ],
+      "ground_energy_reference": null
+    },
+    "17": {
+      "name": "Kagome AF Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "d33ff7c2ee0ebf7b3a18ad3dfcc78aac8f4fef787ed56d68cd0e9d1edd0a0d20",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1011.6114"
+      ],
+      "ground_energy_reference": null
+    },
+    "18": {
+      "name": "Shastry-Sutherland",
+      "group": "exactly_solvable",
+      "subclass": "exact_dimer",
+      "catalogue_solvability": "P",
+      "task_sha256": "5db65fd3a0496c77e2f4d8f5e0397b384d2f1da63f9b58b31f0b0f2f4b7e0ea4",
+      "reason": "当前Jd/J=2参数处有正交二聚体精确基态, 不将该模型全部参数区间视为已解.",
+      "sources": [
+        "https://doi.org/10.1016/0378-4363(81)90838-X"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -0.75,
+        "exact_rational": "-3/4",
+        "expression": "-3*Jd/8",
+        "formula": "-3*Jd/8",
+        "method": "Orthogonal singlet dimers, Jd>=2*J triangle bound",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://doi.org/10.1016/0378-4363(81)90838-X"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "18",
+        "task_sha256": "f7b7bb06372765d5e7db3c03de4f481dc9f1f73639a4f9f9667d14025ee12174"
+      }
+    },
+    "19": {
+      "name": "Square J-Q",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "e47dc8718fb1c794003b84204824f82d99c690d8354401b555ba2a7203e0ac13",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0611343"
+      ],
+      "ground_energy_reference": null
+    },
+    "20": {
+      "name": "Square compass",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "2d465b2b07a49be1e46f5c481cee484a2effd170e86067dd3797847d987ca820",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0501708"
+      ],
+      "ground_energy_reference": null
+    },
+    "21": {
+      "name": "Xu-Moore quantum plaquette Ising",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "8cf8f0711f48f031940e47f9c068424eba0650b7ee9abbcedebb056bbe07449d",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0312587"
+      ],
+      "ground_energy_reference": null
+    },
+    "22": {
+      "name": "Honeycomb Kitaev",
+      "group": "exactly_solvable",
+      "subclass": "majorana_exact_ground_sector",
+      "catalogue_solvability": "E",
+      "task_sha256": "36316494c6f1b78deff4be8dbf0a8891602200d4b01902197eaef314affac945",
+      "reason": "零场蜂窝Kitaev模型具有精确Majorana解及已知基态规范扇区.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0506438"
+      ],
+      "ground_energy_reference": {
+        "formula": "e0=-(1/2)*mean_(x,y in [0,2*pi]^2) abs(Kz+Kx*exp(i*x)+Ky*exp(i*y))",
+        "parameters": {
+          "Kx": "1",
+          "Ky": "1",
+          "Kz": "1"
+        },
+        "sources": [
+          "https://arxiv.org/abs/cond-mat/0506438"
+        ],
+        "source_locator": "Sec.4, Eqs.(29)-(32), zero-flux global ground sector from Lieb's theorem, Majorana spectrum +/-2*abs(Kz+Kx*exp(i*x)+Ky*exp(i*y))",
+        "normalization_checks": [
+          "Kx=Ky=0,Kz=1 gives isolated Pauli dimers e0=-1/2",
+          "Sixth-loop zero-flux sector applies at isotropic couplings",
+          "Not the S=sigma/2 energy, which differs by a factor of four"
+        ],
+        "status": "ready",
+        "kind": "analytic_formula_numerical_evaluation",
+        "value": -0.7872986187759469,
+        "value_decimal": "-0.787298618775946828747346091538260",
+        "task_sha256": "d1282f33afe8dcca8453a610b0195ab5244a3d87e475b4fec062aec92d26a4fe",
+        "normalization": "per_qubit",
+        "operator_convention": "Pauli sigma, not S=sigma/2",
+        "global_ground_state": true,
+        "reference_scope": "thermodynamic_limit",
+        "evaluation": {
+          "method": "mpmath closed-form or quadrature evaluation of exact dispersion",
+          "working_decimal_precisions": [
+            50,
+            70
+          ],
+          "stored_significant_decimal_digits": 32,
+          "reported_absolute_tolerance": 1e-12,
+          "error_is_rigorous": false,
+          "note": "Precision refinement and independent momentum-grid/finite-chain checks support the numerical decimal; this is not a certified interval enclosure."
+        },
+        "task_id": "22",
+        "numerical_tolerance": 1e-12
+      }
+    },
+    "23": {
+      "name": "Honeycomb Heisenberg-Kitaev-Gamma",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "284b3d4d079778469167423e05ee567fe05a947e3f95cf83441e06c18faba5e1",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1310.7940"
+      ],
+      "ground_energy_reference": null
+    },
+    "24": {
+      "name": "Yao-Kivelson decorated honeycomb",
+      "group": "generic",
+      "subclass": "gauge_sector",
+      "catalogue_solvability": "E",
+      "task_sha256": "885dcc20ce1056c473c536914ced07b7a668659c53519e961d1745d82b90aa59",
+      "reason": "Yao-Kivelson原文Uniform fluxes说明一般耦合处全局扇区最小化没有解析解; 本版不将uniform-flux扇区能量当作已核实全局精确基态能量.",
+      "sources": [
+        "https://arxiv.org/abs/0708.0040"
+      ],
+      "ground_energy_reference": null
+    },
+    "25": {
+      "name": "2D toric code",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "b292766b6772e61bfc60b622b0a16e657efc5f7caa56436b668734793998c7b3",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/9707021"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/9707021"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "25",
+        "task_sha256": "4f1a25c6e6d6401bdec745176d469830394a103ccddde88e4aa757fe0756a831"
+      }
+    },
+    "26": {
+      "name": "Wen plaquette",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "603a4c0d076638f45fc5948ca8f87edc06d97721e20fc6249869a88d192135d4",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/0205004"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/0205004"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "26",
+        "task_sha256": "5ed68f47f221b1e230122f81492fac66546b181a70b3e69970b7cd9c161f21a7"
+      }
+    },
+    "27": {
+      "name": "Honeycomb color code",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "f4eda12f380d7a25ce711d6558df90453c20b933c28acf9f2fd386e1a3c74ba6",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/0605138"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/0605138"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "27",
+        "task_sha256": "1361203816709365b50ae8e95c295faa73d4c592f11d0665899cb5fc6d8d1985"
+      }
+    },
+    "28": {
+      "name": "Square cluster",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "78681a7939f89ab40190b26d71be561c3ce00db8939ce198f2032a35d07baeaf",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/0004051"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/0004051"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "28",
+        "task_sha256": "d03619b6c45ad5d7c2d1462a66e31445370d8f8fbda31a42909689f2772ee07c"
+      }
+    },
+    "29": {
+      "name": "Levin-Gu triangular Ising SPT",
+      "group": "exactly_solvable",
+      "subclass": "commuting_unitary_parent",
+      "catalogue_solvability": "E",
+      "task_sha256": "27aa3ad9a519bd631f5d99636586fee1c32dfc37ae8bebc322027ae91bf0de37",
+      "reason": "Levin-Gu固定点SPT哈密顿量有显式对易母哈密顿量构造.",
+      "sources": [
+        "https://arxiv.org/abs/1202.3120"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting single-flip involutions, one center per physical qubit",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/1202.3120"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "29",
+        "task_sha256": "c16cbec157a3ec7bde3a07453e85fd836cb644d4027b3d026c9bc2a33def244e"
+      }
+    },
+    "30": {
+      "name": "Union-Jack CCZ SPT",
+      "group": "exactly_solvable",
+      "subclass": "commuting_unitary_parent",
+      "catalogue_solvability": "E",
+      "task_sha256": "7eabf72bb9c7287bc51f4823fd3aa40c9d7a61bd108d07738f95adf9848288e5",
+      "reason": "Union-Jack模型由CCZ电路共轭乘积态母哈密顿量构造.",
+      "sources": [
+        "https://arxiv.org/abs/1508.02695"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting single-flip involutions, one center per physical qubit",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/1508.02695"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "30",
+        "task_sha256": "e42849f228a82075b8896100f002ece3958afeb8dee061f6885a685431b8e78d"
+      }
+    },
+    "31": {
+      "name": "Transverse-field Baxter-Wu",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "c6340b17a21d8d6e55326d1d40234bf77c681c35c178837221325ef9bb9041ad",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1403.1406"
+      ],
+      "ground_energy_reference": null
+    },
+    "32": {
+      "name": "BFG easy-axis kagome",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "cca1ab568f504cd45aca8bc4004fd0301c5dbd279448be4c517d40ec182d10c3",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0110005"
+      ],
+      "ground_energy_reference": null
+    },
+    "33": {
+      "name": "Kagome Heisenberg plus scalar chirality",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "dbd89ad7f32f0bd8c16bb8c4f3c76c8beda44253d39e63d7689badd506501efc",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1401.3017"
+      ],
+      "ground_energy_reference": null
+    },
+    "34": {
+      "name": "Simple cubic TFIM",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "b1c9e11ab3ff6697f978fc9a64c9379b39c1e9fbf1fec75dfc13851072c320bb",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/2005.13592"
+      ],
+      "ground_energy_reference": null
+    },
+    "35": {
+      "name": "Simple cubic J1-J2 Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "8011ea973782e04b2e34a64729ede38b2ee4882a2bfe9de076ecf11c2aa8579f",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/0910.0638"
+      ],
+      "ground_energy_reference": null
+    },
+    "36": {
+      "name": "BCC J1-J2 Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "def9b4f0aa085fd75ab322e2297797d7b842fc25cb62c0cc334dc1d8a56747d1",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0203085"
+      ],
+      "ground_energy_reference": null
+    },
+    "37": {
+      "name": "Cubic compass",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "389710d99f413affb30075561815b917b105c94832b56f2ad427d940eabc8f75",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1010.3804"
+      ],
+      "ground_energy_reference": null
+    },
+    "38": {
+      "name": "Cubic transverse-field plaquette Ising",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "ec4775acefc9d724dff25dc198ade28447a0b591336bda45248007c6e5c74d97",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/1603.04442"
+      ],
+      "ground_energy_reference": null
+    },
+    "39": {
+      "name": "Pyrochlore XXZ quantum spin ice",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "56afdf2e16e93adfa7275cf07cc8779d5d0b9b12aa33a550324a346267c43253",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0305401"
+      ],
+      "ground_energy_reference": null
+    },
+    "40": {
+      "name": "Dimerized diamond Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "fc8f09941598126ea187c514c0aaea0106ac357fc0152ca83d7c054356f43792",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/2410.13706"
+      ],
+      "ground_energy_reference": null
+    },
+    "41": {
+      "name": "Hyperhoneycomb Kitaev",
+      "group": "generic",
+      "subclass": "gauge_sector",
+      "catalogue_solvability": "G",
+      "task_sha256": "dfedb6005c96764ee225cb08f17b4a1fe84794f9194646738825522cf71b210a",
+      "reason": "固定Z2规范扇区内Majorana二次型可解; 本版没有核实全局最低能量规范扇区的严格参考, 主评分归入一般变分组.",
+      "sources": [
+        "https://arxiv.org/abs/0801.0229"
+      ],
+      "ground_energy_reference": null
+    },
+    "42": {
+      "name": "Hyperoctagon Kitaev",
+      "group": "generic",
+      "subclass": "gauge_sector",
+      "catalogue_solvability": "G",
+      "task_sha256": "33a56edeaf413ca484294b509a310b51040a809c7ec864bd3728db0e26a02788",
+      "reason": "固定Z2规范扇区内Majorana二次型可解; 本版没有核实全局最低能量规范扇区的严格参考, 主评分归入一般变分组.",
+      "sources": [
+        "https://www.thp.uni-koeln.de/trebst/pubs/HyperoctagonSpinonFermiSurface.pdf"
+      ],
+      "ground_energy_reference": null
+    },
+    "43": {
+      "name": "Hyperkagome AF Heisenberg",
+      "group": "generic",
+      "subclass": "generic_variational",
+      "catalogue_solvability": "V",
+      "task_sha256": "618a761913971126b41491dce749ac4caa62de67452165899a87b18714cd4b93",
+      "reason": "当前耦合处未在本版使用可用的严格精确基态解; 以合法态能量进行变分比较.",
+      "sources": [
+        "https://arxiv.org/abs/2311.08210"
+      ],
+      "ground_energy_reference": null
+    },
+    "44": {
+      "name": "Cubic cluster",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "63d59bac3368764bef7e3d81250edc601e74ad5533e994b40a18269936fdad8c",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/quant-ph/0004051"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/quant-ph/0004051"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "44",
+        "task_sha256": "860c279c45b438abaf9041f4571a509f97131398478ea0dd3326e01ebe8ffceb"
+      }
+    },
+    "45": {
+      "name": "3D toric code",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "280c628f59c82c714b0f1609d52f0289fee203d7e257820c4a86aac38731db05",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0411752"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.3333333333333333,
+        "exact_rational": "-4/3",
+        "expression": "-4/3",
+        "formula": "-4/3",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/cond-mat/0411752"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "45",
+        "task_sha256": "e73cadd599e36cd593a1eaf23ab48a120e28aa966635f1cb938973d9fcc8cdd6"
+      }
+    },
+    "46": {
+      "name": "X-cube",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "efa943729781833ec8525dac2025df323422d6be882fd1ec8dfc5d8d225db139",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/1603.04442"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.3333333333333333,
+        "exact_rational": "-4/3",
+        "expression": "-4/3",
+        "formula": "-4/3",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/1603.04442"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "46",
+        "task_sha256": "effa7fabf7da71a44a725af69951c8f5eb18e448afab3405adc3bdd8dde16b45"
+      }
+    },
+    "47": {
+      "name": "Checkerboard fracton",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "71e10fa6445eac21a6ed47eecd858364208e0f0547d921d045d6f4fecefc4726",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/1806.08633"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/1806.08633"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "47",
+        "task_sha256": "db6bde5b46c50a01ec3848bfee4a9434026e0f22fc9e4d70b965ae61d9fefb4b"
+      }
+    },
+    "48": {
+      "name": "Haah cubic code 1",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "dafd3342c837037f0b6ddcd32a2904aed4012767a3d6d51902bc4115a32f7961",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/1101.1962"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/1101.1962"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "48",
+        "task_sha256": "b59f51d2f00c2c73d7af73dc20e1642f6c623697fdef36b90eca9f166e4f1be0"
+      }
+    },
+    "49": {
+      "name": "Chamon",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "c52121f237887696480ca614568d1f07f504b038c2d0d22332a5a4d193be52d0",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://arxiv.org/abs/cond-mat/0404182",
+        "https://arxiv.org/abs/1006.4871"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.0,
+        "exact_rational": "-1",
+        "expression": "-1",
+        "formula": "-1",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://arxiv.org/abs/cond-mat/0404182",
+          "https://arxiv.org/abs/1006.4871"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "49",
+        "task_sha256": "2f29f535851533a2b9360f2f44830b15f9d1218c6938ad39989d8de95af267a3"
+      }
+    },
+    "50": {
+      "name": "Truncated-octahedral 3D color code",
+      "group": "exactly_solvable",
+      "subclass": "commuting_stabilizer",
+      "catalogue_solvability": "E",
+      "task_sha256": "6dde5d96694b0f77f8fa1f5f1260bfb035b6850d18f49d8fc15469c391bcf614",
+      "reason": "当前无外场固定点具有对易稳定子/图态基态构造.",
+      "sources": [
+        "https://doi.org/10.1103/PRXQuantum.4.030338",
+        "https://arxiv.org/abs/cond-mat/0607736"
+      ],
+      "ground_energy_reference": {
+        "status": "ready",
+        "value": -1.3333333333333333,
+        "exact_rational": "-4/3",
+        "expression": "-4/3",
+        "formula": "-4/3",
+        "method": "Commuting frustration-free Pauli generators; all +1 simultaneously attainable",
+        "kind": "exact_rational_float_evaluation",
+        "normalization": "per_qubit",
+        "sources": [
+          "https://doi.org/10.1103/PRXQuantum.4.030338",
+          "https://arxiv.org/abs/cond-mat/0607736"
+        ],
+        "numerical_tolerance": 1e-13,
+        "certified_error": false,
+        "task_id": "50",
+        "task_sha256": "a2877aa9e0a29dd55bbfa79c07ae7eec9f7939eaedb03399b0828101ba8e7a65"
+      }
+    }
+  }
+}

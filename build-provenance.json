@@ -1,0 +1,9 @@
+{
+  "bit_identical_independent_rebuild_claimed": false,
+  "bundled_asset_dirs": [],
+  "independent_build_recipe": "Dockerfile",
+  "independent_build_recipe_sha256": "ffc7511ae86f30785dc141d4de3d42b103b07b4af2c7ec014daa5610d3ec841a",
+  "schema": "seekgnomes-build-provenance/v1.3",
+  "source_manifest_sha256": "4b2d92bd0c89868738f8e9c533df26dd4cf5c3c71af1315d27204a439268d200",
+  "version": "1.3.0"
+}

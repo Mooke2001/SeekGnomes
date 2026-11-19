@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuantumManyBodyVariational.SpecChecks.Challenge",
+  "solution_module": "QuantumManyBodyVariational.SpecChecks.Solution",
+  "theorem_names": ["Submission.accepted"],
+  "definition_names": ["Submission.f", "Submission.bound"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
