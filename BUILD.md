@@ -2,9 +2,16 @@
 
 SeekGnomes v1.3.0使用Linux amd64容器. 准备Docker Engine或Linux rootless Podman, Python 3.11或更新版本及可访问固定依赖来源的网络. Windows可在WSL2中走同一流程. 预留至少40 GiB容器及构建空间.
 
-GitHub源码含构建配方及依赖锁. 单独提供的`seekgnomes-v1.3.0-public-build-context.tar.gz`另含Lean、Mathlib和固定Python wheel. 原生harness运行时由使用者在构建机上按固定版本从相应上游获取, 并遵循各厂商条款. 公开归档只提供原生安装配方、版本锁和核验元数据.
+GitHub源码含构建配方及依赖锁. 完整构建包另含Lean、Mathlib和固定Python wheel. 原生harness运行时由使用者在构建机上按固定版本从相应上游获取, 并遵循各厂商条款. 公开归档只提供原生安装配方、版本锁和核验元数据.
 
-在解压后的完整公开构建目录中执行:
+下载[完整构建包](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz), 然后解压并进入构建目录. 完整归档的SHA-256见[校验清单](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS).
+
+```bash
+tar -xzf seekgnomes-v1.3.0-public-build-context.tar.gz
+cd seekgnomes-v1.3.0
+```
+
+在构建目录中执行以下命令.
 
 ```bash
 python3 build-harness-assets.py
@@ -20,20 +27,6 @@ python3 seal-native-assets.py
 完成自检后用`./seekgnomes`在终端配置并启动测评, 或运行`bash ./console-src/Start.command`打开本地浏览器控制台.
 
 镜像相关验证摘要绑定被测源码清单与实际镜像ID. 复建镜像有自己的镜像ID, 因此请对复建结果执行上述自检. 本项目不承诺独立构建生成相同字节.
-
-## 下载分卷
-
-将同一个包的所有`.partNNN`、对应`.parts.json`和恢复脚本存入同一目录. Python 3和PowerShell的恢复命令如下:
-
-```bash
-python3 seekgnomes-v1.3.0-restore-artifact.py seekgnomes-v1.3.0-public-build-context.tar.gz.parts.json
-```
-
-```powershell
-powershell -File .\seekgnomes-v1.3.0-restore-artifact.ps1 -Manifest .\seekgnomes-v1.3.0-public-build-context.tar.gz.parts.json
-```
-
-脚本按顺序核对每片与整体文件的长度和SHA-256, 然后恢复原归档. 已有完整归档时可直接使用.
 
 ## 作者侧封装
 

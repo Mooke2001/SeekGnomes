@@ -6,7 +6,7 @@ SeekGnomes asks LLMs to construct valid low-energy states on infinite quantum la
 
 ## Quick start
 
-Download the **public build context** from GitHub Releases. The initial build needs Linux x86-64 or WSL on x86-64, Python 3.11 or later, Docker Engine or rootless Podman on Linux, and network access to the pinned dependency sources. The container requires at least 12 GiB of available memory. We recommend 16 GiB. It runs on CPU. See [BUILD.md](BUILD.md) for multipart download recovery and image build instructions.
+Download the [**complete build archive**](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz) and extract it. The initial build needs Linux x86-64 or WSL on x86-64, Python 3.11 or later, Docker Engine or rootless Podman on Linux, and network access to the pinned dependency sources. The container requires at least 12 GiB of available memory. We recommend 16 GiB. It runs on CPU. See [BUILD.md](BUILD.md) for image build instructions.
 
 After building the image, run these commands from the same directory.
 
@@ -80,4 +80,4 @@ The outer package mounts the results directory. It does not mount the host home 
 - `seekgnomes-v1.3.0-github-source.tar.gz` contains the task set, Lean specifications, runner, local console, and build recipes.
 - `seekgnomes-v1.3.0-public-build-context.tar.gz` also includes pinned Lean, Mathlib, and Python wheels. Follow [BUILD.md](BUILD.md) to obtain the vendor CLIs and build the image locally.
 
-Release assets include SHA-256 checksums and multipart recovery scripts. The author has yet to specify a project license. Third-party components retain their own licenses. The archives exclude model weights, API keys, and historical benchmark data. Users run the benchmark on their own machine or infrastructure. Result sharing is off by default and requires a configured submission endpoint and user opt-in.
+Release assets include [SHA-256 checksums](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS). The author has yet to specify a project license. Third-party components retain their own licenses. The archives exclude model weights, API keys, and historical benchmark data. Users run the benchmark on their own machine or infrastructure. Result sharing is off by default and requires a configured submission endpoint and user opt-in.
