@@ -1,12 +1,14 @@
 # SeekGnomes
 
-SeekGnomes让LLM为无限量子晶格构造低能量的合法态, 并由固定Lean目标及独立内核核验. 源码入口默认使用`seekgnomes-harbor-state/v1`协议. 它以Harbor0.22.0组织任务和试次, 使用模型公司的官方harness. 公司没有官方harness时使用Codex. v1.3.0包含`.state`工作流, 试次检查点恢复和本地浏览器控制台.
+**English** | [简体中文](README.zh-CN.md)
 
-## 快速开始
+SeekGnomes asks LLMs to construct valid low-energy states on infinite quantum lattices. It checks each proof against a fixed Lean target and verifies it independently with the Lean kernel. It uses Harbor 0.22.0 to organize tasks and trials and defaults to the `seekgnomes-harbor-state/v1` protocol. The benchmark uses the model provider's official harness where available and Codex where the provider has no official harness. Version 1.3.0 includes the `.state` workflow, trial checkpoint recovery, and a local browser console.
 
-从本版本的GitHub Releases下载完整的**公开构建上下文**. 初次构建需要Linux x86-64或x86-64 WSL, Python 3.11+, Docker Engine或Linux rootless Podman, 以及访问固定依赖上游的网络. 容器运行需要至少12 GiB当前可用内存, 建议16 GiB, 无GPU要求. 大型归档的分卷恢复与构建步骤见[BUILD.md](BUILD.md).
+## Quick start
 
-按构建说明完成镜像后, 在同一目录执行:
+Download the **public build context** from GitHub Releases. The initial build needs Linux x86-64 or WSL on x86-64, Python 3.11 or later, Docker Engine or rootless Podman on Linux, and network access to the pinned dependency sources. The container requires at least 12 GiB of available memory. We recommend 16 GiB. It runs on CPU. See [BUILD.md](BUILD.md) for multipart download recovery and image build instructions.
+
+After building the image, run these commands from the same directory.
 
 ```bash
 ./seekgnomes doctor
@@ -14,9 +16,9 @@ SeekGnomes让LLM为无限量子晶格构造低能量的合法态, 并由固定Le
 bash ./console-src/Start.command
 ```
 
-启动器打开本机网页. 选择模型、API、5至50题、CPU、并行数、token或时间预算、联网和可选结果共享. 命令行可直接运行`./seekgnomes`. Windows使用WSL与Linux容器; 其他平台的实测范围见验证摘要.
+The launcher opens a page on your machine. Select a model, configure its API, choose 5 to 50 tasks, and set CPU allocation, parallelism, token or time budget, web access, and optional result sharing. Run `./seekgnomes` for the terminal interface. On Windows, use WSL with Linux containers. The validation summary records the platforms covered by testing.
 
-交互入口会询问精确model ID, API地址和隐藏API key. 公司识别不明确时, 用`--company`明确指定. 也可先查看选择结果, 不发模型请求:
+The interactive interface asks for the exact model ID, API URL, and an API key entered without echo. Use `--company` if the model provider cannot be inferred from the ID. You can inspect the configuration before making model requests.
 
 ```bash
 ./seekgnomes harnesses
@@ -25,65 +27,57 @@ bash ./console-src/Start.command
   --api-protocol responses --tasks 2 --print-config
 ```
 
-实际运行去掉`--print-config`. `--tasks all`为默认50题, 可用`--tasks 1,7,13-15`选择明确子集. 默认允许通过受控工具查公开资料, `--no-web`记录为不同协议. API key从隐藏输入或`SEEKGNOMES_API_KEY`环境读取, 不使用命令行key参数.
+Remove `--print-config` to run the benchmark. The default `--tasks all` selects all 50 tasks. Use an explicit selection such as `--tasks 1,7,13-15` for a subset. Controlled access to public information is enabled by default. Runs using `--no-web` are recorded separately. Supply the API key at the hidden prompt or through `SEEKGNOMES_API_KEY`.
 
-`--constructor-output-tokens`设置Constructor主阶段的累计输出token限额, 默认128000, 也可通过`SEEKGNOMES_CONSTRUCTOR_OUTPUT_TOKENS`配置. 本版取消1x/2x/4x的科学扩容. 主阶段结束时, 只有从未成功通过`create_handoff`交接完整`f.state`的试次, 才追加唯一一次固定50000输出token的收尾, 要求完成定义并交接. 收尾沿用该试次会话, 结束时仍无完整交接则为科学失败.
+`--constructor-output-tokens` sets the Constructor's cumulative output budget for the main phase. The default is 128,000 tokens, and `SEEKGNOMES_CONSTRUCTOR_OUTPUT_TOKENS` can set it through the environment. If the main phase ends before a complete `f.state` has been handed off with `create_handoff`, the same session gets one closing phase with a fixed 50,000-output-token budget to complete the handoff. The trial records a scientific failure if the closing phase ends without a complete handoff.
 
-`--cpus`同时控制容器CPU配额和运行计划, 默认2. `--constructor-active-seconds`配置主阶段活动时间, 默认14400秒; 符合条件的收尾另给同样的时间额度, 因而每个技术attempt内Constructor总活动时间最多为两倍该值, Formalist活动期间暂停Constructor计时. 输入token默认没有累计上限, 可选`--constructor-input-tokens`显式设置主阶段额度I, 符合条件的收尾独立再给I; API次数不设累计上限. 对应环境变量为`SEEKGNOMES_CPUS`, `SEEKGNOMES_CONSTRUCTOR_ACTIVE_SECONDS`和`SEEKGNOMES_CONSTRUCTOR_INPUT_TOKENS`.
+`--cpus` sets both the container CPU quota and the CPU allocation in the run plan. The default is 2. `--constructor-active-seconds` sets the Constructor's active time limit for the main phase, defaulting to 14,400 seconds. An eligible closing phase receives a separate allocation of the same duration. The Constructor's clock pauses while the Formalist is active. Cumulative input tokens are unlimited by default. If you set `--constructor-input-tokens`, the main phase and any eligible closing phase each receive that amount. The cumulative number of API calls is unlimited. The environment variables are `SEEKGNOMES_CPUS`, `SEEKGNOMES_CONSTRUCTOR_ACTIVE_SECONDS`, and `SEEKGNOMES_CONSTRUCTOR_INPUT_TOKENS`.
 
-## 公司, harness与API
+## The two roles
 
-中转站路由前缀不等于模型公司, 原始model ID会原样传递. 选择规则和官方证据见`harness_registry.json`及`HARNESS_SOURCES.md`. `--harness`仅用于确认公司规则选定的harness, 不能用来暗中切换另一个运行器.
+The Constructor explores the physics, writes a complete `f.state`, and hands it off with `create_handoff`. The host freezes the source and generates its Lean definition and fixed proof target. The Formalist retrieves the generated files with `prepare`, writes the proof, and submits it with `score`. After the proof matches the target and passes independent Lean kernel verification, the host evaluates the energy density per qubit from that same `.state` and returns it to the Constructor. The Formalist can revise a proof that fails verification and ask the Constructor to fix a specific defect in the frozen definition. Both roles receive the same [`.state` language guide](STATE_USAGE.md) at `reference/state_language.md`.
 
-原生harness的API可能是Responses, Anthropic Messages, Chat Completions或Gemini GenerateContent. `--api-protocol auto`使用选中harness的登记协议, 也可以显式确认. API地址必须提供相应协议. 不兼容时返回技术错误, 不替换模型或harness. 对已有官方harness但本版尚未完成安全集成的公司, 在API调用前明确拒绝, 不把它误当作“没有官方harness”.
+The native harness manages each role's context. Framework requests for summarization or context compaction count toward the corresponding role's usage. The Constructor's budget carries across handoffs. The Formalist has unlimited cumulative usage under the protocol. Per-request timeouts and resource limits still apply to individual API calls and Lean processes.
 
-Kimi Code要求明确提供模型上下文窗口. 使用`--model-context-tokens 正整数`或`SEEKGNOMES_MODEL_CONTEXT_TOKENS`; 交互模式可以输入, 非交互运行缺少该值会拒绝. 程序不从型号名称猜测窗口, 不使用旧版保守字节估计充当原生token窗口.
+CPU allocation and active time control resource use. The numerical tools reserve CPU time conservatively as requested CPUs times requested wall time. Native CLI usage is measured on the process tree. These measurements are recorded separately and use a different accounting scheme from earlier releases.
 
-## 两个角色
+## Results and recovery
 
-Constructor负责物理探索, 编写完整的`f.state`, 以`create_handoff`交接. 宿主冻结该文件并从它生成Lean定义与固定命题. Formalist通过`prepare`收到生成文件, 编写证明并以`score`提交证明文件. 证明经固定命题匹配与独立Lean内核验证后, 宿主用同一份`.state`计算每qubit能量密度, 将结果返回Constructor. 未核验通过时Formalist继续修订证明. 发现冻结定义的具体缺陷时可以反馈给Constructor修正. 两个角色可从`reference/state_language.md`读取同一份[.state使用文档](STATE_USAGE.md).
-
-原生harness管理各自上下文, 旧的按字节阈值裁剪消息循环不再作为本版执行器. 框架内部的摘要或压缩请求仍计入相应角色的用量. Constructor预算贯穿每次交接, Formalist按既定协议不限制累计用量; 单次API和Lean进程仍有期限与资源保护.
-
-本版取消旧的3600秒累计CPU上限, 按所选CPU配额和活动时间控制资源. 数值工具记录请求CPU数乘以请求wall时间的保守预留, 原生CLI记录进程树观测CPU, 二者分别保留, 与旧版用量不直接并表.
-
-## 结果
-
-宿主结果默认位于解压目录的`results/`, 可通过`SEEKGNOMES_RESULTS_DIR`指定. 容器内固定映射为:
+The host writes results to `results/` under the extracted package directory by default. Set `SEEKGNOMES_RESULTS_DIR` to choose another directory. Inside the container it maps to
 
 ```text
 /home/ubuntu/Mooke/Eureka/Projects/QuantumManyBodyVariational/runs
 ```
 
-不要把宿主路径传给`--out`; 需要指定时使用上述容器内目录下的新路径. 每次运行保留计划, Harbor结果, 两角色轨迹, 定义原稿, 候选代码, 证明和核验回执, 并输出`results/`和报告. `report`只读取已有证据, 不发API请求.
+Use a new path under the container directory when passing `--out`. Each run preserves its plan, Harbor results, both role traces, source definitions, candidate code, proofs, and verification receipts. The `report` command reads the stored evidence without making API requests.
 
 ```bash
 ./seekgnomes report \
   /home/ubuntu/Mooke/Eureka/Projects/QuantumManyBodyVariational/runs/YOUR_RUN
 ```
 
-只有固定命题匹配且通过独立Lean内核的态才计入成绩. 报告使用原始`.state`与核验记录重算能量. 能量为浮点估计, Lean核验覆盖态的合法性, 平移不变性及相关定义域和极限条件. 技术缺失不填0, 严格可解组和一般变分组分别评分, 详见`SCORING.md`及`PROTOCOL.md`.
+A state counts toward the score once its proof matches the fixed target and passes independent Lean kernel verification. The report recomputes the energy from the original `.state` and verification records. The reported energy is a floating-point estimate. The Lean proof covers state validity, translation invariance, and the applicable domain and limit conditions. Technical failures are recorded as missing results. Exactly solvable models and general variational models are scored separately. See [SCORING.md](SCORING.md) and [PROTOCOL.md](PROTOCOL.md).
 
-预算, CPU或联网设置不同的运行单独记录配置, 不直接混作同一排名. Harbor在试次控制器意外退出后自动从同一试次的检查点接续. 试次进入需要独立重测的技术终态时, 每题最多3个同配置的技术attempt. 科学失败保留原预算内的结果.
+The run configuration records budget, CPU, and web settings so that rankings can compare runs under the same conditions. Harbor automatically resumes from the same trial's checkpoint after an unexpected trial controller exit. When a terminal technical failure requires a fresh attempt, a task can run up to three attempts with the same configuration. Scientific failures retain the results obtained under the original budget.
 
-如外层监督进程或宿主也已退出, 用包含检查点续跑支持的构建重启原运行:
+If the outer supervisor or host itself stopped, use a build with checkpoint support to resume the original run.
 
 ```bash
 ./seekgnomes resume \
   /home/ubuntu/Mooke/Eureka/Projects/QuantumManyBodyVariational/runs/YOUR_RUN
 ```
 
-容器启动时应挂载同一个结果目录, 并用`SEEKGNOMES_CPUS`提供原计划所需的CPU数. 续跑从原计划读入模型和预算, API key仍通过隐藏输入或环境提供. 已完成任务与明确取消的运行保留原终态.
+Mount the same results directory and use `SEEKGNOMES_CPUS` to provide the CPU count required by the original plan. The run resumes with the stored model and budget. Provide the API key again at the hidden prompt or through the environment. Completed tasks and explicitly cancelled runs keep their terminal status.
 
-## 安全和复现边界
+## Isolation and reproducibility
 
-外层包仅挂载本次results目录, 不挂Docker socket或宿主用户家目录. 原生agent在受限角色环境中运行, 只获得角色范围的工具连接, 不获得真实模型API凭据. Constructor的科学计算工具和Formalist的证明工具分别隔离. 禁止跨模型, 跨任务或跨独立运行/技术attempt共享候选和长期记忆.
+The outer package mounts the results directory. It does not mount the host home directory or Docker socket. Native agents run in isolated role environments with role-specific tool connections and without direct access to model API credentials. The Constructor's scientific tools and the Formalist's proof tools are isolated from each other. Candidates and persistent memory stay within their model, task, and technical attempt.
 
-`doctor`和`self-test`不发付费模型请求. 自检包含严格核验正反例, `.state`从证明到能量的本地验证, 以及离线Harbor试次. 原生CLI和平台的验收范围见对应包的`validation-summary.json`.
+`doctor` and `self-test` make no paid model requests. The self-test covers positive and negative proof checks, local `.state` verification and energy evaluation, and an offline Harbor trial. See `validation-summary.json` for the scope of platform and native CLI testing.
 
-## 发布文件
+## Release files
 
-- `seekgnomes-v1.3.0-github-source.tar.gz`是轻量源码. 含题库、Lean规格、执行器、本地控制台和构建配方.
-- `seekgnomes-v1.3.0-public-build-context.tar.gz`另含固定Lean、Mathlib和Python wheel. 需在本机按构建说明获取厂商CLI并构建镜像.
+- `seekgnomes-v1.3.0-github-source.tar.gz` contains the task set, Lean specifications, runner, local console, and build recipes.
+- `seekgnomes-v1.3.0-public-build-context.tar.gz` also includes pinned Lean, Mathlib, and Python wheels. Follow [BUILD.md](BUILD.md) to obtain the vendor CLIs and build the image locally.
 
-公开附件提供SHA-256清单与分卷恢复工具. 项目自身的许可条款尚待作者指定, 第三方组件适用各自的许可. 包内无模型权重、API key、历史测评数据或公共评测服务器. 结果共享默认关闭, 需在发布方配置接收地址后主动启用.
+Release assets include SHA-256 checksums and multipart recovery scripts. The author has yet to specify a project license. Third-party components retain their own licenses. The archives exclude model weights, API keys, and historical benchmark data. Users run the benchmark on their own machine or infrastructure. Result sharing is off by default and requires a configured submission endpoint and user opt-in.

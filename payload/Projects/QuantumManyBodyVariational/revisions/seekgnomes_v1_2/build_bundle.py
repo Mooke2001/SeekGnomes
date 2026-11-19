@@ -217,7 +217,7 @@ def stage_release_files(release):
     # also hide the checked-in console and benchmark runtime packages.
     ignore.write_text("\n".join("/" + rule if rule == "runtime/" else rule for rule in rules) + "\n")
     copy_file(HERE / "BUILD.md", release / "BUILD.md")
-    for name in ("README.md", "PROTOCOL.md", "STATE_USAGE.md", "HARNESS_SOURCES.md", "harness_registry.json"):
+    for name in ("README.md", "README.zh-CN.md", "PROTOCOL.md", "STATE_USAGE.md", "HARNESS_SOURCES.md", "harness_registry.json"):
         copy_file(HERE / name, release / name)
     copy_file(PROJECT / "STATE_FORMAT.md", release / "STATE_FORMAT.md")
     for name in ("SCORING.md", "task_groups.json", "exact_reference_catalogue.json"):
@@ -420,7 +420,7 @@ def assemble_archives(*, release=RELEASE, source_only=False, allow_unvalidated=F
     """Publish recipes and selected open dependencies without native runner binaries."""
     release = canonical_path(Path(release).absolute())
     image = None if allow_unvalidated else validated_image(release)
-    files = [*TEMPLATE_FILES, "BUILD.md", "README.md", "PROTOCOL.md", "SCORING.md", "STATE_USAGE.md",
+    files = [*TEMPLATE_FILES, "BUILD.md", "README.md", "README.zh-CN.md", "PROTOCOL.md", "SCORING.md", "STATE_USAGE.md",
              "STATE_FORMAT.md", "task_groups.json", "exact_reference_catalogue.json",
              "HARNESS_SOURCES.md", "harness_registry.json", "source-manifest.json",
              "build-zcode-assets.py", "native-package-lock.json", *sealed_files(release)]

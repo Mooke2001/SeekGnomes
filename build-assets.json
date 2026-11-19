@@ -885,6 +885,6 @@
     }
   },
   "schema": "seekgnomes-build-assets/v1.2",
-  "source_manifest_sha256": "4b2d92bd0c89868738f8e9c533df26dd4cf5c3c71af1315d27204a439268d200",
+  "source_manifest_sha256": "4ac01566d88cdd14ab1d2188314f464d30c8d29d1e6e292ca192b24c8c8ee853",
   "vendor_runtime_acquisition": "on_the_build_host_from_pinned_upstream"
 }
