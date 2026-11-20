@@ -4,7 +4,7 @@ SeekGnomes v1.3.0使用Linux amd64容器. 准备Docker Engine或Linux rootless P
 
 GitHub源码含构建配方及依赖锁. 完整构建包另含Lean、Mathlib和固定Python wheel. 原生harness运行时由使用者在构建机上按固定版本从相应上游获取, 并遵循各厂商条款. 公开归档只提供原生安装配方、版本锁和核验元数据.
 
-下载[完整构建包](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz), 然后解压并进入构建目录. 完整归档的SHA-256见[校验清单](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS).
+下载[完整构建包](https://github.com/Mooke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz), 然后解压并进入构建目录. 完整归档的SHA-256见[校验清单](https://github.com/Mooke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS).
 
 ```bash
 tar -xzf seekgnomes-v1.3.0-public-build-context.tar.gz

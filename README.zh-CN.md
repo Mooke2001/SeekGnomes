@@ -6,7 +6,7 @@ SeekGnomes让LLM为无限量子晶格构造低能量的合法态, 并由固定Le
 
 ## 快速开始
 
-下载[**完整构建包**](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz)并解压. 初次构建需要Linux x86-64或x86-64 WSL, Python 3.11+, Docker Engine或Linux rootless Podman, 以及访问固定依赖上游的网络. 容器运行需要至少12 GiB当前可用内存, 建议16 GiB, 无GPU要求. 镜像构建步骤见[BUILD.md](BUILD.md).
+下载[**完整构建包**](https://github.com/Mooke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-public-build-context.tar.gz)并解压. 初次构建需要Linux x86-64或x86-64 WSL, Python 3.11+, Docker Engine或Linux rootless Podman, 以及访问固定依赖上游的网络. 容器运行需要至少12 GiB当前可用内存, 建议16 GiB, 无GPU要求. 镜像构建步骤见[BUILD.md](BUILD.md).
 
 按构建说明完成镜像后, 在同一目录执行:
 
@@ -80,7 +80,7 @@ Constructor负责物理探索, 编写完整的`f.state`, 以`create_handoff`交�
 - `seekgnomes-v1.3.0-github-source.tar.gz`是轻量源码. 含题库、Lean规格、执行器、本地控制台和构建配方.
 - `seekgnomes-v1.3.0-public-build-context.tar.gz`另含固定Lean、Mathlib和Python wheel. 需在本机按构建说明获取厂商CLI并构建镜像.
 
-公开附件提供[SHA-256清单](https://github.com/Moke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS). 包内无模型权重、API key、历史测评数据或公共评测服务器. 结果共享默认关闭, 需在发布方配置接收地址后主动启用.
+公开附件提供[SHA-256清单](https://github.com/Mooke2001/SeekGnomes/releases/download/v1.3.0/seekgnomes-v1.3.0-SHA256SUMS). 包内无模型权重、API key、历史测评数据或公共评测服务器. 结果共享默认关闭, 需在发布方配置接收地址后主动启用.
 
 ## 许可证
 
